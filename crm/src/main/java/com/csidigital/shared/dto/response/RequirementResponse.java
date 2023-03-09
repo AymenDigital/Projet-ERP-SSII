@@ -4,15 +4,14 @@ import com.csidigital.shared.enumeration.Availability;
 import com.csidigital.shared.enumeration.RequirementStatus;
 import com.csidigital.shared.enumeration.RequirementType;
 import com.csidigital.shared.enumeration.WorkField;
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class RequirementResponse {
     private Long id ;
     private String title ;

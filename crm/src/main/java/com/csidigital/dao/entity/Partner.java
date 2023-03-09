@@ -1,7 +1,6 @@
 package com.csidigital.dao.entity;
 
-import com.csidigital.enums.*;
-import com.csidigital.management.enums.*;
+
 import com.csidigital.shared.enumeration.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

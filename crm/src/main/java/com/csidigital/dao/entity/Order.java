@@ -4,33 +4,36 @@ import com.csidigital.shared.enumeration.BillingType;
 import com.csidigital.shared.enumeration.OrderStatus;
 import com.csidigital.shared.enumeration.PaymentCondition;
 import com.csidigital.shared.enumeration.PaymentMode;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class Order {
+@Table(name = "Order")
+@Entity
+public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String orderRef;
+    @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     private Boolean customerAgreement;
-    private LocalDate orderDate;
+    private Date orderDate;
+    @Enumerated(EnumType.STRING)
     private BillingType billingType;
     private String billingInstruction;
     private Long tva;
+    @Enumerated(EnumType.STRING)
     private PaymentCondition paymentCondition;
+    @Enumerated(EnumType.STRING)
     private PaymentMode paymentMode;
     private String bankDetail;
     private Long orderRevenue;

@@ -24,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> get() {
+
         return orderRepository.findAll() ;
     }
 
@@ -48,7 +49,7 @@ public class OrderServiceImpl implements OrderService {
         order.setPaymentCondition(orderRequest.getPaymentCondition());
         order.setTva(orderRequest.getTva());*/
 
-        ;
+
         return null;
     }
 
