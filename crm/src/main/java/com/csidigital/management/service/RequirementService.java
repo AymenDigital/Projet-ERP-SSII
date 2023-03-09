@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RequirementService {
-    RequirementResponse create(RequirementRequest requirementRequest);
-    List<RequirementResponse> get();
-    RequirementResponse getById(Long id);
+    RequirementResponse createRequirement(RequirementRequest request);
+    List<RequirementResponse> getAllRequirements();
+    RequirementResponse getRequirementById(Long id);
 
-    RequirementResponse update(RequirementRequest requirementRequest );
+    RequirementResponse updateRequirement(RequirementRequest request, Long id);
 
-    void delete(Long id);
+    void deleteRequirement(Long id);
 }

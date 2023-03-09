@@ -5,6 +5,8 @@ import com.csidigital.shared.dto.request.RequirementRequest;
 import com.csidigital.shared.dto.response.RequirementResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,23 +15,30 @@ import java.util.List;
 public class RequirementController {
     @Autowired
     private RequirementServiceImpl requirementService ;
+
     @GetMapping()
-    public List<RequirementResponse> Get() {
-        return requirementService.get();
+    public List<RequirementResponse> getAllRequirements() {
+        return requirementService.getAllRequirements();
     }
 
     @GetMapping("/{id}")
-    public RequirementResponse getById(@PathVariable Long id){
-        return requirementService.getById(id);
+    public RequirementResponse getRequirementById(@PathVariable Long id){
+        return requirementService.getRequirementById(id);
     }
 
     @PostMapping()
     public RequirementResponse createRequirement(@Valid @RequestBody RequirementRequest requirementRequest){
-        return requirementService.create(requirementRequest);
+        return requirementService.createRequirement(requirementRequest);
+    }
+
+    @PutMapping("/{id}")
+    public RequirementResponse updateRequirement(@Valid @RequestBody RequirementRequest requirementRequest,
+                                                 @PathVariable Long id){
+        return requirementService.updateRequirement(requirementRequest, id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteRequirement(@PathVariable Long id){
-        requirementService.delete(id);
+        requirementService.deleteRequirement(id);
     }
 }
