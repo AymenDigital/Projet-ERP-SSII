@@ -4,10 +4,7 @@ import com.csidigital.shared.enumeration.Availability;
 import com.csidigital.shared.enumeration.RequirementStatus;
 import com.csidigital.shared.enumeration.RequirementType;
 import com.csidigital.shared.enumeration.WorkField;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,13 +20,18 @@ public class Requirement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private String title ;
+    @Enumerated(EnumType.STRING)
     private RequirementType requirementType ;
     private String description ;
     private String Criteria ;
+    @Enumerated(EnumType.STRING)
     private RequirementStatus requirementStatus ;
+    @Enumerated(EnumType.STRING)
     private WorkField workField ;
+    @Enumerated(EnumType.STRING)
     private Availability availability ;
     private Double plannedBudget ;
+
     private Double plannedIncome ;
     private LocalDate startDate ;
     private LocalDate expectedEndDate ;

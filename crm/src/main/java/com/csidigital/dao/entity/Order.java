@@ -9,16 +9,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
-
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "Order")
 @Entity
-public class Order implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,5 +33,6 @@ public class Order implements Serializable {
     private PaymentMode paymentMode;
     private String bankDetail;
     private Long orderRevenue;
+
 
 }

@@ -1,11 +1,8 @@
 package com.csidigital.management.mapper;
 
 import com.csidigital.dao.entity.OfferedService;
-import com.csidigital.dao.entity.Order;
 import com.csidigital.shared.dto.request.OfferedServiceRequest;
-import com.csidigital.shared.dto.request.OrderRequest;
 import com.csidigital.shared.dto.response.OfferedServiceResponse;
-import com.csidigital.shared.dto.response.OrderResponse;
 import org.springframework.beans.BeanUtils;
 
 public class OfferedServiceMapper {
