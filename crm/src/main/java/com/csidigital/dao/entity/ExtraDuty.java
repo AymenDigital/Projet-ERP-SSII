@@ -15,8 +15,9 @@ public class ExtraDuty {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private Long workingHoursNumber ;
-    private double HourWage ;
-    private double PerformanceBonus ;
+    private Double HourWage ;
+    private Double PerformanceBonus ;
+    @Enumerated(EnumType.STRING)
     private ExtraDutyType extraDuty ;
 
     @ManyToOne

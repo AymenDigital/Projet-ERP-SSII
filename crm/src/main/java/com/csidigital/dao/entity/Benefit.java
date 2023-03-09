@@ -16,10 +16,11 @@ public class Benefit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Enumerated(EnumType.STRING)
     private BenefitStatus benefitStatus ;
     private String titled ;
-    private double averageDailyCost ;
-    private double totalCost ;
+    private Double averageDailyCost ;
+    private Double totalCost ;
 
     private double cost ;
     private double costEfficiency ;

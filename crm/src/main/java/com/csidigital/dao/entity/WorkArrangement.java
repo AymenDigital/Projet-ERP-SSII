@@ -15,9 +15,10 @@ public class WorkArrangement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Enumerated(EnumType.STRING)
     private WorkModel workModel ;
-    private double dailyWage;
-    private long workingDaysWorking ;
+    private Double dailyWage;
+    private Long workingDaysWorking ;
 
     @ManyToOne
     private Benefit benefit;

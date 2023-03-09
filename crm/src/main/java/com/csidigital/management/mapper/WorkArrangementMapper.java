@@ -7,7 +7,9 @@ import com.csidigital.shared.dto.request.WorkArrangementRequest;
 import com.csidigital.shared.dto.response.RequirementResponse;
 import com.csidigital.shared.dto.response.WorkArrangementResponse;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WorkArrangementMapper {
     public WorkArrangementResponse toWorkArrangementResponseDto(WorkArrangement workArrangement) {
         WorkArrangementResponse workArrangementResponse = new WorkArrangementResponse();

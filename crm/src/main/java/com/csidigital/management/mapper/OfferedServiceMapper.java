@@ -4,6 +4,9 @@ import com.csidigital.dao.entity.OfferedService;
 import com.csidigital.shared.dto.request.OfferedServiceRequest;
 import com.csidigital.shared.dto.response.OfferedServiceResponse;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class OfferedServiceMapper {
     public OfferedServiceResponse toOfferedServiceResponseDto(OfferedService OfferedService){

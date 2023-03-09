@@ -7,6 +7,9 @@ import com.csidigital.shared.dto.request.RequirementRequest;
 import com.csidigital.shared.dto.response.PartnerResponse;
 import com.csidigital.shared.dto.response.RequirementResponse;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class PartnerMapper {
     public PartnerResponse toPartnerResponseDto(Partner partner){

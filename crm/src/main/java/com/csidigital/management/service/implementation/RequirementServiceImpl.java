@@ -7,6 +7,7 @@ import com.csidigital.management.service.RequirementService;
 import com.csidigital.shared.dto.request.RequirementRequest;
 import com.csidigital.shared.dto.response.RequirementResponse;
 import com.csidigital.shared.exceptions.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 @Service
+@Transactional
 @AllArgsConstructor
-@NoArgsConstructor
 public class RequirementServiceImpl implements RequirementService {
+
     private RequirementMapper requirementMapper ;
-    @Autowired
     private RequirementRepository requirementRepository ;
     @Override
     public RequirementResponse create(RequirementRequest requirementRequest) {

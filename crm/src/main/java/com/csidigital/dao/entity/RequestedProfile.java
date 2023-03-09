@@ -18,6 +18,6 @@ public class RequestedProfile {
     private Long id ;
 
     //private profil
-    private int condidatNumber;
+    private Integer candidateNumber;
     private String missionPlace;
 }

@@ -19,16 +19,19 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Enumerated(EnumType.STRING)
     private Civility civility;
     private String lastName;
     private String firstName;
     private String function;
+    @Enumerated(EnumType.STRING)
     private Service service;
     private String emailOne;
     private String emailTwo;
     private Long phoneNumberOne;
     private Long phoneNumberTwo;
     private String comment;
+    @Enumerated(EnumType.STRING)
     private Privilege privilege;
 
     @OneToMany(mappedBy = "contact")

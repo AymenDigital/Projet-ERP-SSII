@@ -19,6 +19,7 @@ public class Partner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private String name ;
+    @Enumerated(EnumType.STRING)
     private CompanyStatus companyStatus ;
     private int staffNumber;
     private String parentCompany;
@@ -27,18 +28,24 @@ public class Partner {
     private String ceoLastName ;
     private Long phoneNumber ;
     private Long phoneNumberTwo ;
+    @Enumerated(EnumType.STRING)
     private RefPhoneNumber refPhoneNumber;
+    @Enumerated(EnumType.STRING)
     private RefPhoneNumber refPhoneNumber2;
     private int postCode ;
     private String city ;
+    @Enumerated(EnumType.STRING)
     private Country country ;
     private String description ;
+    @Enumerated(EnumType.STRING)
     private WorkField workField ;
+    @Enumerated(EnumType.STRING)
     private LegalStatus legalStatus ;
     private Byte[] logo ;
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
+    @Enumerated(EnumType.STRING)
     private Provenance provenance ;
 
     @OneToMany(mappedBy = "partner")
