@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Duration;
 import java.time.LocalDate;
 
 @Data
@@ -20,7 +21,7 @@ public class ContactNote {
     private String  subject;
     private String comment;
     private String discussionNote;
-    private String duration;
+    private Duration duration;
 
     @ManyToOne
     private Contact contact;

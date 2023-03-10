@@ -1,49 +1,71 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.shared.dto.request.AddressRequest;
 import com.csidigital.dao.entity.Address;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
 import com.csidigital.dao.repository.AddressRepository;
+import com.csidigital.shared.dto.request.AddressRequest;
+import com.csidigital.shared.dto.response.AddressResponse;
+import com.csidigital.shared.exceptions.ResourceNotFoundException;
 import com.csidigital.management.service.AddressService;
 import jakarta.transaction.Transactional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
  public class AddressServiceImpl implements AddressService {
     @Autowired
     private AddressRepository addressRepository ;
-    @Override
-    public Address create(Address address) {
-        return addressRepository.save(address); }
+    @Autowired
+    private ModelMapper modelMapper;
 
+    //Add new address
     @Override
-    public List<Address> get() {
-        return addressRepository.findAll();
+    public AddressResponse createAddress(AddressRequest request) {
+        Address address = modelMapper.map(request, Address.class);
+        Address AddressSaved = addressRepository.save(address);
+        return modelMapper.map(AddressSaved, AddressResponse.class);
     }
 
+    //Get list of all addresses
     @Override
-    public Optional<Address> getById(Long id) {
-        return addressRepository.findById(id);
+    public List<AddressResponse> getAllAddresses() {
+        List<Address> addresses = addressRepository.findAll();
+        List<AddressResponse> addressList = new ArrayList<>();
+
+        for (Address address : addresses) {
+            AddressResponse response = modelMapper.map(address, AddressResponse.class);
+            addressList.add(response);
+        }
+
+        return addressList;
     }
 
+    //Get a specific address by its id
     @Override
-        public ResponseEntity<Address> update(AddressRequest addressDetails , Long id) {
-        Address addr = addressRepository.findById(id)
-                .orElseThrow(()-> new ResourceNotFoundException("address with id " +id+ " not found"));
-                addr.setAddressTitle(addressDetails.getAddressTitle());
-                addressRepository.save(addr);
-    return ResponseEntity.ok(addr);
+    public AddressResponse getAddressById(Long id) {
+        Address address = addressRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Address with id " +id+ " not found"));
+        AddressResponse addressResponse = modelMapper.map(address, AddressResponse.class);
+        return addressResponse;
     }
 
+    //Update a specific address by its id
     @Override
-    public void delete(Long id) {
+    public AddressResponse updateAddress(AddressRequest request, Long id) {
+        Address existingAddress = addressRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Address with id: " + id + " not found"));
+        modelMapper.map(request, existingAddress);
+        Address savedAddress = addressRepository.save(existingAddress);
+        return modelMapper.map(savedAddress, AddressResponse.class);
+    }
+
+    //Delete a specific address by its id
+    @Override
+    public void deleteAddress(Long id) {
         addressRepository.deleteById(id);
-
     }
 }

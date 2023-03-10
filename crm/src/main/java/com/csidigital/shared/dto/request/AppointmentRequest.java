@@ -5,6 +5,7 @@ import com.csidigital.dao.entity.Contact;
 import lombok.Data;
 
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -13,10 +14,7 @@ import java.time.LocalTime;
 public class AppointmentRequest {
     private LocalDate date;
     private LocalTime time;
-
-    private String duration;
+    private Duration duration;
     private String subject;
-
-
     private Contact contact;
 }

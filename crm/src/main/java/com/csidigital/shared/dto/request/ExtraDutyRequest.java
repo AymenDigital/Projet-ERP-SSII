@@ -13,8 +13,8 @@ import lombok.Data;
 
 public class ExtraDutyRequest {
     private Long workingHoursNumber ;
-    private Double HourWage ;
-    private Double PerformanceBonus ;
+    private Double hourWage ;
+    private Double performanceBonus ;
 
     private ExtraDutyType extraDuty ;
 

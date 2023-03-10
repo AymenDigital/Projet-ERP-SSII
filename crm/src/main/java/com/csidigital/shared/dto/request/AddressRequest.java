@@ -1,6 +1,7 @@
 package com.csidigital.shared.dto.request;
 
 
+import com.csidigital.dao.entity.Partner;
 import lombok.Data;
 
 
@@ -8,4 +9,5 @@ import lombok.Data;
 
 public class AddressRequest {
     private String addressTitle ;
+    private Partner partner;
 }

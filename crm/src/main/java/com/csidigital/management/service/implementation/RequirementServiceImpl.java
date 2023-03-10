@@ -35,8 +35,8 @@ public class RequirementServiceImpl implements RequirementService {
     @Override
     public RequirementResponse createRequirement(RequirementRequest request) {
         Requirement requirement = modelMapper.map(request, Requirement.class);
-        Requirement RequirementSaved = requirementRepository.save(requirement);
-        return modelMapper.map(RequirementSaved, RequirementResponse.class);
+        Requirement requirementSaved = requirementRepository.save(requirement);
+        return modelMapper.map(requirementSaved, RequirementResponse.class);
     }
 
     @Override
