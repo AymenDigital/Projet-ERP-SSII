@@ -41,4 +41,5 @@ public class RequirementController {
     public void deleteRequirement(@PathVariable Long id){
         requirementService.deleteRequirement(id);
     }
+
 }

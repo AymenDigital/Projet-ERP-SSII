@@ -21,7 +21,7 @@ public class Partner {
     private String name ;
     @Enumerated(EnumType.STRING)
     private CompanyStatus companyStatus ;
-    private int staffNumber;
+    private Integer staffNumber;
     private String parentCompany;
 
     private String ceoName ;
@@ -32,7 +32,7 @@ public class Partner {
     private RefPhoneNumber refPhoneNumber;
     @Enumerated(EnumType.STRING)
     private RefPhoneNumber refPhoneNumber2;
-    private int postCode ;
+    private Integer postCode ;
     private String city ;
     @Enumerated(EnumType.STRING)
     private Country country ;

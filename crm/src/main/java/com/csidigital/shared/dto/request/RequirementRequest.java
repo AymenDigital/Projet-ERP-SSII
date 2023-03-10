@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Data
 
 public class RequirementRequest {
+
     private String title ;
     private RequirementType requirementType ;
     private String description ;

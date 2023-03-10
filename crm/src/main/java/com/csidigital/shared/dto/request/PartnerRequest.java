@@ -14,10 +14,10 @@ import java.util.List;
 @Data
 
 public class PartnerRequest {
-    private Long id ;
+
     private String name ;
     private CompanyStatus companyStatus ;
-    private int staffNumber;
+    private Integer staffNumber;
     private String parentCompany;
 
     private String ceoName ;
@@ -26,7 +26,7 @@ public class PartnerRequest {
     private Long phoneNumberTwo ;
     private RefPhoneNumber refPhoneNumber;
     private RefPhoneNumber refPhoneNumber2;
-    private int postCode ;
+    private Integer postCode ;
     private String city ;
     private Country country ;
     private String description ;

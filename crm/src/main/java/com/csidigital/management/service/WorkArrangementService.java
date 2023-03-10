@@ -8,9 +8,9 @@ import com.csidigital.shared.dto.response.WorkArrangementResponse;
 import java.util.List;
 
 public interface WorkArrangementService {
-    WorkArrangementResponse create(WorkArrangementRequest workArrangementRequest);
-    List<WorkArrangementResponse> get();
-    WorkArrangementResponse getById(Long id);
+    WorkArrangementResponse createWorkArrangement(WorkArrangementRequest workArrangementRequest);
+    List<WorkArrangementResponse> getAllWorkArrangements();
+    WorkArrangementResponse getWorkArrangementById(Long id);
 
     WorkArrangementResponse update(WorkArrangementRequest workArrangementRequest );
 
