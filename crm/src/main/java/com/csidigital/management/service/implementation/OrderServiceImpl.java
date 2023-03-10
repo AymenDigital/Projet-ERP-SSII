@@ -1,60 +1,75 @@
 package com.csidigital.management.service.implementation;
 
+import com.csidigital.dao.entity.*;
 import com.csidigital.dao.entity.Order;
+import com.csidigital.dao.entity.Order;
+import com.csidigital.dao.entity.Order;
+import com.csidigital.dao.repository.OrderRepository;
 import com.csidigital.shared.dto.request.OrderRequest;
-import com.csidigital.shared.dto.response.OrderResponse;
+import com.csidigital.shared.dto.response.*;
 import com.csidigital.dao.repository.OrderRepository;
 import com.csidigital.management.service.OrderService;
+import com.csidigital.shared.dto.response.OrderResponse;
+import com.csidigital.shared.dto.response.OrderResponse;
+import com.csidigital.shared.dto.response.OrderResponse;
+import com.csidigital.shared.exceptions.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class OrderServiceImpl implements OrderService {
-   @Autowired
-   private OrderRepository orderRepository ;
+    @Autowired
+    private OrderRepository orderRepository ;
+    @Autowired
+    private ModelMapper modelMapper;
     @Override
-    public Order create(Order order) {
-        return orderRepository.save(order);
+    public OrderResponse createOrder(OrderRequest request) {
+        Order order = modelMapper.map(request, Order.class);
+        Order orderSaved = orderRepository.save(order);
+        return modelMapper.map(orderSaved, OrderResponse.class);
     }
 
     @Override
-    public List<Order> get() {
+    public List<OrderResponse> getAllOrders() {
+        List<Order> orders = orderRepository.findAll();
+        List<OrderResponse> orderList = new ArrayList<>();
 
-        return orderRepository.findAll() ;
+        for (Order order : orders) {
+            OrderResponse response = modelMapper.map(order, OrderResponse.class);
+            orderList.add(response);
+        }
+
+        return orderList;
     }
 
     @Override
-    public Optional<Order> getById(Long id) {
-        return orderRepository.findById(id);
+    public OrderResponse getOrderById(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Order with id " +id+ " not found"));
+        OrderResponse orderResponse = modelMapper.map(order, OrderResponse.class);
+        return orderResponse;
     }
 
     @Override
-    public OrderResponse update(OrderRequest orderRequest) {
-
-        /*Order order = orderRepository.findById(id)
-                .orElseThrow(()-> new ResourceNotFoundException("order with id " +id+ " not found"));
-        order.setOrderDate(orderRequest.getOrderDate());
-        order.setOrderRevenue(orderRequest.getOrderRevenue());
-        order.setOrderStatus(orderRequest.getOrderStatus());
-        order.setBankDetail(orderRequest.getBankDetail());
-        order.setPaymentMode(orderRequest.getPaymentMode());
-        order.setBillingType(orderRequest.getBillingType());
-        order.setBillingInstruction(orderRequest.getBillingInstruction());
-        order.setCustomerAgreement(orderRequest.getCustomerAgreement());
-        order.setPaymentCondition(orderRequest.getPaymentCondition());
-        order.setTva(orderRequest.getTva());*/
-
-
-        return null;
+    public OrderResponse updateOrder(OrderRequest request , Long id) {
+        Order existingOrder = orderRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Order with id: " + id + " not found"));
+        modelMapper.map(request, existingOrder);
+        Order savedOrder = orderRepository.save(existingOrder);
+        return modelMapper.map(savedOrder, OrderResponse.class);
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteOrder(Long id) {
      orderRepository.deleteById(id);
     }
 }

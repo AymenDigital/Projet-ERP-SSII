@@ -1,15 +1,25 @@
 package com.csidigital.management.service.implementation;
 
+import com.csidigital.dao.entity.*;
+import com.csidigital.dao.entity.Partner;
+import com.csidigital.dao.entity.Partner;
+import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.shared.dto.request.PartnerRequest;
 import com.csidigital.dao.entity.Partner;
+import com.csidigital.shared.dto.response.*;
+import com.csidigital.shared.dto.response.PartnerResponse;
+import com.csidigital.shared.dto.response.PartnerResponse;
+import com.csidigital.shared.dto.response.PartnerResponse;
 import com.csidigital.shared.exceptions.ResourceNotFoundException;
 import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.management.service.PartnerService;
 import jakarta.transaction.Transactional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,52 +28,49 @@ import java.util.Optional;
 public class PartnerServiceImpl implements PartnerService {
    @Autowired
    private PartnerRepository partnerRepository ;
-    @Override
-    public Partner create(Partner partner) {
-        return partnerRepository.save(partner);
-    }
+  
+   @Autowired
+   private ModelMapper modelMapper;
 
-    @Override
-    public List<Partner> get() {
-        return partnerRepository.findAll();
-    }
+   @Override
+   public PartnerResponse createPartner(PartnerRequest request) {
+      Partner partner = modelMapper.map(request, Partner.class);
+      Partner partnerSaved = partnerRepository.save(partner);
+      return modelMapper.map(partnerSaved, PartnerResponse.class);
+   }
 
-    @Override
-    public Optional<Partner> getById(Long id) {
-        return partnerRepository.findById(id);
-    }
+   @Override
+   public List<PartnerResponse> getAllPartners() {
+      List<Partner> partners = partnerRepository.findAll();
+      List<PartnerResponse> partnerList = new ArrayList<>();
 
-    @Override
-    public ResponseEntity<Partner> update(PartnerRequest partnerRequest, Long id) {
-        Partner partner = partnerRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
-       partner.setCity(partnerRequest.getCity());
-       partner.setCountry(partnerRequest.getCountry());
-       partner.setAddresses(partnerRequest.getAddresses());
-       partner.setName(partnerRequest.getName());
-       partner.setCeoName(partnerRequest.getCeoLastName());
-       partner.setCeoLastName(partnerRequest.getCeoLastName());
-       partner.setActivityEndDate(partnerRequest.getActivityEndDate());
-       partner.setActivityStartDate(partnerRequest.getActivityStartDate());
-       partner.setLogo(partnerRequest.getLogo());
-       partner.setDescription(partnerRequest.getDescription());
-       partner.setLegalStatus(partnerRequest.getLegalStatus());
-       partner.setWorkField(partnerRequest.getWorkField());
-       partner.setStaffNumber(partnerRequest.getStaffNumber());
-       partner.setRefPhoneNumber(partnerRequest.getRefPhoneNumber());
-       partner.setRefPhoneNumber2(partnerRequest.getRefPhoneNumber2());
-       partner.setProvenance(partnerRequest.getProvenance());
-       partner.setPostCode(partnerRequest.getPostCode());
-       partner.setPhoneNumber(partnerRequest.getPhoneNumber());
-       partner.setPhoneNumberTwo(partnerRequest.getPhoneNumberTwo());
-       partner.setPartnerShipDate(partnerRequest.getPartnerShipDate());
-       partner.setParentCompany(partnerRequest.getParentCompany());
-       partner.setOfferedServices(partnerRequest.getOfferedServices());
-       partnerRepository.save(partner);
-        return ResponseEntity.ok(partner);
-    }
+      for (Partner partner : partners) {
+         PartnerResponse response = modelMapper.map(partner, PartnerResponse.class);
+         partnerList.add(response);
+      }
 
-    @Override
-    public void delete(Long id) {
-    partnerRepository.deleteById(id);
-    }
+      return partnerList;
+   }
+
+   @Override
+   public PartnerResponse getPartnerById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      PartnerResponse partnerResponse = modelMapper.map(partner, PartnerResponse.class);
+      return partnerResponse;
+   }
+
+   @Override
+   public PartnerResponse updatePartner(PartnerRequest request, Long id) {
+      Partner existingPartner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id: " + id + " not found"));
+      modelMapper.map(request, existingPartner);
+      Partner savedPartner = partnerRepository.save(existingPartner);
+      return modelMapper.map(savedPartner, PartnerResponse.class);
+   }
+
+   @Override
+   public void deletePartner(Long id) {
+ partnerRepository.deleteById(id);
+   }
 }

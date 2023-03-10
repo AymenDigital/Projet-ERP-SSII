@@ -2,18 +2,46 @@ package com.csidigital.management.controller;
 
 import com.csidigital.dao.entity.Order;
 import com.csidigital.management.service.implementation.OrderServiceImpl;
+import com.csidigital.management.service.implementation.OrderServiceImpl;
+import com.csidigital.shared.dto.request.OrderRequest;
+import com.csidigital.shared.dto.response.OrderResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/order")
 public class OrderController {
     @Autowired
-    private OrderServiceImpl orderService ;
-@GetMapping("/getOrder")
-    public List<Order> Get(){
-        return orderService.get();
+
+    private OrderServiceImpl OrderService ;
+
+    @GetMapping()
+    public List<OrderResponse> getAllOrders() {
+        return OrderService.getAllOrders();
     }
+
+    @GetMapping("/{id}")
+    public OrderResponse getOrderById(@PathVariable Long id){
+        return OrderService.getOrderById(id);
+    }
+
+    @PostMapping()
+    public OrderResponse createOrder(@Valid @RequestBody OrderRequest orderRequest){
+        return OrderService.createOrder(orderRequest);
+    }
+
+    @PutMapping("/{id}")
+    public OrderResponse updateOrder(@Valid @RequestBody OrderRequest orderRequest,
+                                                 @PathVariable Long id){
+        return OrderService.updateOrder(orderRequest, id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteOrder(@PathVariable Long id){
+        OrderService.deleteOrder(id);
+    }
+
 }

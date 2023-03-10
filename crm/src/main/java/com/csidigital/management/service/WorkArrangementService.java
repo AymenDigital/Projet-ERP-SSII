@@ -12,7 +12,7 @@ public interface WorkArrangementService {
     List<WorkArrangementResponse> getAllWorkArrangements();
     WorkArrangementResponse getWorkArrangementById(Long id);
 
-    WorkArrangementResponse update(WorkArrangementRequest workArrangementRequest );
+    WorkArrangementResponse updateWorkArrangement(WorkArrangementRequest workArrangementRequest, Long id );
 
-    void delete(Long id);
+    void deleteWorkArrangement(Long id);
 }

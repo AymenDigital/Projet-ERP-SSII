@@ -18,7 +18,7 @@ public class WorkArrangement {
     @Enumerated(EnumType.STRING)
     private WorkModel workModel ;
     private Double dailyWage;
-    private Long workingDaysWorking ;
+    private Long workingDaysNumber ;
 
     @ManyToOne
     private Benefit benefit;
