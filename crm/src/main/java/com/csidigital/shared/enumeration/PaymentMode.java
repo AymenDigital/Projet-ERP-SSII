@@ -1,5 +1,5 @@
 package com.csidigital.shared.enumeration;
 
 public enum PaymentMode {
-    MRS , MS , MR
+   CASH , CREDIT , DEBIT_CARD , BANK_TRANSFER , PAYPAL , CHECK , OTHER
 }

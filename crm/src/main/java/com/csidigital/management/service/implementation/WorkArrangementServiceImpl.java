@@ -12,6 +12,7 @@ import com.csidigital.shared.dto.request.WorkArrangementRequest;
 
 import com.csidigital.shared.dto.response.RequirementResponse;
 import com.csidigital.shared.dto.response.WorkArrangementResponse;
+import com.csidigital.shared.exceptions.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -52,16 +53,26 @@ public class WorkArrangementServiceImpl implements WorkArrangementService {
 
     @Override
     public WorkArrangementResponse getWorkArrangementById(Long id) {
-        return null;
+        WorkArrangement workArrangement = workArrangementRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Work arrangement with id " +id+ " not found"));
+        WorkArrangementResponse workArrangementResponse = modelMapper.map(workArrangement, WorkArrangementResponse.class);
+        return workArrangementResponse;
     }
 
     @Override
-    public WorkArrangementResponse update(WorkArrangementRequest workArrangementRequest) {
-        return null;
+    public WorkArrangementResponse updateWorkArrangement( WorkArrangementRequest request , Long id) {
+       WorkArrangement existingWorkArrangement = workArrangementRepository.findById(id)
+               .orElseThrow(()-> new ResourceNotFoundException("Work arrangement with id " +id+ " not found"));
+       modelMapper.map(request , existingWorkArrangement) ;
+       WorkArrangement savedWorkArrangement = workArrangementRepository.save(existingWorkArrangement);
+       return modelMapper.map(savedWorkArrangement , WorkArrangementResponse.class);
+
+
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteWorkArrangement(Long id) {
+        workArrangementRepository.deleteById(id);
 
     }
 }
