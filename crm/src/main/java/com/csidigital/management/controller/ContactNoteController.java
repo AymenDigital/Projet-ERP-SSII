@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/crm/contactNote")
+@RequestMapping("/crm/contactNotes")
+@CrossOrigin("*")
 public class ContactNoteController {
     @Autowired
     private ContactNoteServiceImpl contactNoteService ;

@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/crm/contact")
+@RequestMapping("/crm/contacts")
+@CrossOrigin("*")
 public class ContactController {
     @Autowired
     private ContactServiceImpl contactService ;

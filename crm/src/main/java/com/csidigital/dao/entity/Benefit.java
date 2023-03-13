@@ -27,10 +27,10 @@ public class Benefit {
     private Boolean exceptionalCosts;
     private Double monthlyFees ;
 
-    @OneToMany(mappedBy = "benefit")
+    @OneToMany(mappedBy = "benefit", cascade = CascadeType.ALL)
     private List<ExtraDuty> extraDuties;
 
-    @OneToMany(mappedBy = "benefit")
+    @OneToMany(mappedBy = "benefit", cascade = CascadeType.ALL)
     private List<WorkArrangement> workArrangements;
 
 
