@@ -28,7 +28,7 @@ public class RequirementRequest {
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
-    @ManyToOne
+
     private Partner partner ;
 
 

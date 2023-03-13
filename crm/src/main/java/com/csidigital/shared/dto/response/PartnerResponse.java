@@ -38,7 +38,7 @@ public class PartnerResponse {
     private Partner partner ;
 
     private List<Requirement> requirements ;
-    List<Address> addresses;
+    private List<Address> addresses;
 
-    List<OfferedService> offeredServices;
+    private List<OfferedService> offeredServices;
 }

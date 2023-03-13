@@ -40,12 +40,11 @@ public class PartnerRequest {
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
     private Provenance provenance ;
-    private Partner partner ;
 
     private List<Requirement> requirements ;
 
 
-    List<Address> addresses;
+    private List<Address> addresses;
 
-    List<OfferedService> offeredServices;
+    private List<OfferedService> offeredServices;
 }

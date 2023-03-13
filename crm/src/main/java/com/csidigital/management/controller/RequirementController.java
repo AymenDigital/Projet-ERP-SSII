@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping("/requirement")
+@RequestMapping("/crm/requirements")
+@CrossOrigin("*")
 public class RequirementController {
     @Autowired
     private RequirementServiceImpl requirementService ;

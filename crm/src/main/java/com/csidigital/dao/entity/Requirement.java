@@ -37,8 +37,7 @@ public class Requirement {
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
+
     @ManyToOne
-     Partner partner;
-
-
+    private Partner partner;
 }

@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/crm/extraDuty")
+@RequestMapping("/crm/extraDuties")
+@CrossOrigin("*")
 public class ExtraDutyController {
     @Autowired
     private ExtraDutyServiceImpl extraDutyService ;

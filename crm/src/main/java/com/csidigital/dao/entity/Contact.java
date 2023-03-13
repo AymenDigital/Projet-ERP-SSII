@@ -34,10 +34,10 @@ public class Contact {
     @Enumerated(EnumType.STRING)
     private Privilege privilege;
 
-    @OneToMany(mappedBy = "contact")
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
     private List<ContactNote> contactNotes;
 
-    @OneToMany(mappedBy = "contact")
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
 
 }

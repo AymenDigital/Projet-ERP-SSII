@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/crm/benefit")
+@RequestMapping("/crm/benefits")
+@CrossOrigin("*")
 public class BenefitController {
     @Autowired
     private BenefitServiceImpl benefitService ;
