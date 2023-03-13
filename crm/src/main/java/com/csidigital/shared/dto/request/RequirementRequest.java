@@ -1,10 +1,12 @@
 package com.csidigital.shared.dto.request;
 
+import com.csidigital.dao.entity.Partner;
 import com.csidigital.shared.enumeration.Availability;
 import com.csidigital.shared.enumeration.RequirementStatus;
 import com.csidigital.shared.enumeration.RequirementType;
 import com.csidigital.shared.enumeration.WorkField;
 
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 
@@ -26,5 +28,8 @@ public class RequirementRequest {
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
+    @ManyToOne
+    private Partner partner ;
+
 
 }

@@ -2,6 +2,8 @@ package com.csidigital.shared.dto.response;
 
 import com.csidigital.dao.entity.Address;
 import com.csidigital.dao.entity.OfferedService;
+import com.csidigital.dao.entity.Partner;
+import com.csidigital.dao.entity.Requirement;
 import com.csidigital.shared.enumeration.*;
 import lombok.Data;
 
@@ -33,8 +35,9 @@ public class PartnerResponse {
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
     private Provenance provenance ;
+    private Partner partner ;
 
-
+    private List<Requirement> requirements ;
     List<Address> addresses;
 
     List<OfferedService> offeredServices;

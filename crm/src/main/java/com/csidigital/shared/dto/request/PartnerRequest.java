@@ -3,8 +3,11 @@ package com.csidigital.shared.dto.request;
 import com.csidigital.dao.entity.Address;
 import com.csidigital.dao.entity.OfferedService;
 
+import com.csidigital.dao.entity.Partner;
+import com.csidigital.dao.entity.Requirement;
 import com.csidigital.shared.enumeration.*;
 
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 
@@ -37,6 +40,9 @@ public class PartnerRequest {
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
     private Provenance provenance ;
+    private Partner partner ;
+
+    private List<Requirement> requirements ;
 
 
     List<Address> addresses;

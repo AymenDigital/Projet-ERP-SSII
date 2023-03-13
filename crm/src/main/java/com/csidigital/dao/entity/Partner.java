@@ -47,7 +47,8 @@ public class Partner {
     private LocalDate partnerShipDate;
     @Enumerated(EnumType.STRING)
     private Provenance provenance ;
-
+   @OneToMany(mappedBy = "partner")
+   List<Requirement> requirements ;
     @OneToMany(mappedBy = "partner")
     List<Address> addresses;
     @OneToMany(mappedBy = "partner")
