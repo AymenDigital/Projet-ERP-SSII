@@ -3,21 +3,16 @@ package com.csidigital.management.service.implementation;
 import com.csidigital.dao.entity.Appointment;
 import com.csidigital.dao.repository.AppointmentRepository;
 import com.csidigital.shared.dto.request.AppointmentRequest;
-import com.csidigital.dao.entity.Appointment;
-import com.csidigital.shared.dto.request.AppointmentRequest;
 import com.csidigital.shared.dto.response.AppointmentResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
-import com.csidigital.dao.repository.AppointmentRepository;
 import com.csidigital.management.service.AppointmentService;
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional

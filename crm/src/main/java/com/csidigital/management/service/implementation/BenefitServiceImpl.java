@@ -5,7 +5,8 @@ import com.csidigital.dao.repository.BenefitRepository;
 import com.csidigital.management.service.BenefitService;
 import com.csidigital.shared.dto.request.BenefitRequest;
 import com.csidigital.shared.dto.response.BenefitResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

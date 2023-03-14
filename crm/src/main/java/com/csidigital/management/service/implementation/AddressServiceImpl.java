@@ -4,8 +4,9 @@ import com.csidigital.dao.entity.Address;
 import com.csidigital.dao.repository.AddressRepository;
 import com.csidigital.shared.dto.request.AddressRequest;
 import com.csidigital.shared.dto.response.AddressResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
 import com.csidigital.management.service.AddressService;
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,7 +5,8 @@ import com.csidigital.dao.repository.ContactRepository;
 import com.csidigital.management.service.ContactService;
 import com.csidigital.shared.dto.request.ContactRequest;
 import com.csidigital.shared.dto.response.ContactResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

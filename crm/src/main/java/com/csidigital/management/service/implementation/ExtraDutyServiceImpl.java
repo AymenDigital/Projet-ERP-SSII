@@ -5,7 +5,8 @@ import com.csidigital.dao.repository.ExtraDutyRepository;
 import com.csidigital.management.service.ExtraDutyService;
 import com.csidigital.shared.dto.request.ExtraDutyRequest;
 import com.csidigital.shared.dto.response.ExtraDutyResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

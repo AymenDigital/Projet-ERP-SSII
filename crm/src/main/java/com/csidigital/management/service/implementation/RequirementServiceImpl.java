@@ -1,32 +1,27 @@
 package com.csidigital.management.service.implementation;
 
+import com.csidigital.dao.entity.Partner;
 import com.csidigital.dao.entity.Requirement;
+import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.dao.repository.RequirementRepository;
-import com.csidigital.management.mapper.RequirementMapper;
 import com.csidigital.management.service.RequirementService;
 import com.csidigital.shared.dto.request.RequirementRequest;
 import com.csidigital.shared.dto.response.RequirementResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.stream.Collectors;
 @Service
 @Transactional
 @AllArgsConstructor
 public class RequirementServiceImpl implements RequirementService {
+    @Autowired
+    private PartnerRepository partnerRepository;
     @Autowired
     private RequirementRepository requirementRepository ;
     @Autowired
@@ -34,6 +29,8 @@ public class RequirementServiceImpl implements RequirementService {
 
     @Override
     public RequirementResponse createRequirement(RequirementRequest request) {
+        Partner partner = partnerRepository.findById(request.getPartnerId())
+                .orElseThrow(() -> new ResourceNotFoundException("Partner not found"));
         Requirement requirement = modelMapper.map(request, Requirement.class);
         Requirement requirementSaved = requirementRepository.save(requirement);
         return modelMapper.map(requirementSaved, RequirementResponse.class);

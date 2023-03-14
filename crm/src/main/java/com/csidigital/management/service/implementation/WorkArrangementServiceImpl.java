@@ -1,18 +1,16 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.Requirement;
 import com.csidigital.dao.entity.WorkArrangement;
 
 
 import com.csidigital.dao.repository.WorkArrangementRepository;
 
-import com.csidigital.management.mapper.WorkArrangementMapper;
 import com.csidigital.management.service.WorkArrangementService;
 import com.csidigital.shared.dto.request.WorkArrangementRequest;
 
-import com.csidigital.shared.dto.response.RequirementResponse;
 import com.csidigital.shared.dto.response.WorkArrangementResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;

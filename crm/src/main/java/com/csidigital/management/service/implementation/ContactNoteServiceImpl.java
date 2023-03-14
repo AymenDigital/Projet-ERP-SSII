@@ -5,7 +5,8 @@ import com.csidigital.dao.repository.ContactNoteRepository;
 import com.csidigital.management.service.ContactNoteService;
 import com.csidigital.shared.dto.request.ContactNoteRequest;
 import com.csidigital.shared.dto.response.ContactNoteResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -29,7 +29,7 @@ public class RequirementRequest {
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
 
-    private Partner partner ;
+    private Long partnerId ;
 
 
 }

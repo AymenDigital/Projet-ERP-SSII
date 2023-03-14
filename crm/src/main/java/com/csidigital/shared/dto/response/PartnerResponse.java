@@ -35,7 +35,6 @@ public class PartnerResponse {
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
     private Provenance provenance ;
-    private Partner partner ;
 
     private List<Requirement> requirements ;
     private List<Address> addresses;

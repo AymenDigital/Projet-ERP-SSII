@@ -1,17 +1,11 @@
 package com.csidigital.management.service.implementation;
 
 import com.csidigital.dao.entity.OfferedService;
-import com.csidigital.dao.entity.OfferedService;
-import com.csidigital.dao.entity.OfferedService;
-import com.csidigital.dao.entity.OfferedService;
 import com.csidigital.dao.repository.OfferedServiceRepository;
 import com.csidigital.management.service.OfferedServiceService;
 import com.csidigital.shared.dto.request.OfferedServiceRequest;
-import com.csidigital.shared.dto.response.*;
 import com.csidigital.shared.dto.response.OfferedServiceResponse;
-import com.csidigital.shared.dto.response.OfferedServiceResponse;
-import com.csidigital.shared.dto.response.OfferedServiceResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;

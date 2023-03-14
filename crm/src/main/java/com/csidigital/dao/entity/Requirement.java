@@ -38,6 +38,6 @@ public class Requirement {
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Partner partner;
 }
