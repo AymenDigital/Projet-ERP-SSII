@@ -1,7 +1,9 @@
 package com.csidigital.management.service.implementation;
 
 import com.csidigital.dao.entity.Appointment;
+import com.csidigital.dao.entity.Contact;
 import com.csidigital.dao.repository.AppointmentRepository;
+import com.csidigital.dao.repository.ContactRepository;
 import com.csidigital.shared.dto.request.AppointmentRequest;
 import com.csidigital.shared.dto.response.AppointmentResponse;
 import com.csidigital.management.service.AppointmentService;
@@ -21,10 +23,15 @@ public class AppointmentServiceImpl implements AppointmentService {
     private AppointmentRepository appointmentRepository ;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private ContactRepository contactRepository;
 
     @Override
     public AppointmentResponse createAppointment(AppointmentRequest request) {
+        Contact contact = contactRepository.findById(request.getContactNum())
+                .orElseThrow(() -> new ResourceNotFoundException("Contact not found"));
         Appointment appointment = modelMapper.map(request, Appointment.class);
+        appointment.setContact(contact);
         Appointment appointmentSaved = appointmentRepository.save(appointment);
         return modelMapper.map(appointmentSaved, AppointmentResponse.class);
     }

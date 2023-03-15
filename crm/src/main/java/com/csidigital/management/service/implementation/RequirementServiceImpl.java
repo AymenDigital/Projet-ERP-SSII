@@ -29,11 +29,12 @@ public class RequirementServiceImpl implements RequirementService {
 
     @Override
     public RequirementResponse createRequirement(RequirementRequest request) {
-        Partner partner = partnerRepository.findById(request.getPartnerId())
+        Partner partner = partnerRepository.findById(request.getPartnerNum())
                 .orElseThrow(() -> new ResourceNotFoundException("Partner not found"));
         Requirement requirement = modelMapper.map(request, Requirement.class);
-        Requirement requirementSaved = requirementRepository.save(requirement);
-        return modelMapper.map(requirementSaved, RequirementResponse.class);
+        requirement.setPartner(partner);
+        Requirement savedRequirement = requirementRepository.save(requirement);
+        return modelMapper.map(savedRequirement, RequirementResponse.class);
     }
 
     @Override
@@ -45,7 +46,6 @@ public class RequirementServiceImpl implements RequirementService {
             RequirementResponse response = modelMapper.map(requirement, RequirementResponse.class);
             requirementList.add(response);
         }
-
         return requirementList;
     }
 

@@ -2,11 +2,13 @@ package com.csidigital.dao.entity;
 
 
 import com.csidigital.shared.enumeration.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -14,7 +16,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Partner {
+public class Partner implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
@@ -49,10 +51,13 @@ public class Partner {
     private Provenance provenance ;
 
 
+    @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
-    List<Address> addresses;
+    private List<Address> addresses;
+    @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
-    List<OfferedService> offeredServices;
+    private List<OfferedService> offeredServices;
+    @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
-    List<Requirement> requirements;
+    private List<Requirement> requirements;
 }

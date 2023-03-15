@@ -17,5 +17,5 @@ public class OfferedServiceRequest {
     private ServiceType serviceType ;
 
 
-    private Partner partner;
+    private Long partnerNum;
 }

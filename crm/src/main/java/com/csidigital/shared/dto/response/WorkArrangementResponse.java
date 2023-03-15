@@ -9,8 +9,8 @@ public class WorkArrangementResponse {
     private Long id ;
     private WorkModel workModel ;
     private Double dailyWage;
-    private Long workingDaysWorking ;
+    private Long workingDaysNumber ;
 
 
-    private Benefit benefit;
+    private Long benefitId;
 }

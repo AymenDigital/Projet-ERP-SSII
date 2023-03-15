@@ -1,7 +1,9 @@
 package com.csidigital.management.service.implementation;
 
 import com.csidigital.dao.entity.OfferedService;
+import com.csidigital.dao.entity.Partner;
 import com.csidigital.dao.repository.OfferedServiceRepository;
+import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.management.service.OfferedServiceService;
 import com.csidigital.shared.dto.request.OfferedServiceRequest;
 import com.csidigital.shared.dto.response.OfferedServiceResponse;
@@ -23,9 +25,14 @@ public class OfferedServiceServiceImpl implements OfferedServiceService {
     private OfferedServiceRepository offeredServiceRepository ;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private PartnerRepository partnerRepository;
     @Override
     public OfferedServiceResponse createOfferedService(OfferedServiceRequest request) {
+        Partner partner = partnerRepository.findById(request.getPartnerNum())
+                .orElseThrow(() -> new ResourceNotFoundException("Partner not found"));
         OfferedService offeredService = modelMapper.map(request, OfferedService.class);
+        offeredService.setPartner(partner);
         OfferedService offeredServiceSaved = offeredServiceRepository.save(offeredService);
         return modelMapper.map(offeredServiceSaved, OfferedServiceResponse.class);
     }

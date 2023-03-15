@@ -1,16 +1,19 @@
 package com.csidigital.dao.entity;
 
 import com.csidigital.shared.enumeration.ExtraDutyType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExtraDuty {
+public class ExtraDuty implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
@@ -18,8 +21,9 @@ public class ExtraDuty {
     private Double HourWage ;
     private Double PerformanceBonus ;
     @Enumerated(EnumType.STRING)
-    private ExtraDutyType extraDuty ;
+    private ExtraDutyType extraDutyType ;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Benefit benefit;
 }

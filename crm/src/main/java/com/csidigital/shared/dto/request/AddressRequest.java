@@ -9,5 +9,5 @@ import lombok.Data;
 
 public class AddressRequest {
     private String addressTitle ;
-    private Partner partner;
+    private Long partnerNum;
 }

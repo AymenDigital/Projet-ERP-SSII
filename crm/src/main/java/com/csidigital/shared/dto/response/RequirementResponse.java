@@ -29,6 +29,6 @@ public class RequirementResponse {
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
-    private Partner partner ;
+    private Long partnerId ;
 
 }

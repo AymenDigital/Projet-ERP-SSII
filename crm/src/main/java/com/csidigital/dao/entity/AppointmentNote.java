@@ -7,29 +7,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
 
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-public class Appointment implements Serializable {
+@NoArgsConstructor
+public class AppointmentNote implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate date;
-    private LocalTime time;
-    private Duration duration;
-    private String subject;
+    private LocalDate contactDate;
+    private String  subject;
+    private String comment;
+    private String discussionNote;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
-    private Contact contact;
-
     @JsonIgnore
-    @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL)
-    private List<AppointmentNote> appointmentNotes;
+    private Appointment appointment;
 }

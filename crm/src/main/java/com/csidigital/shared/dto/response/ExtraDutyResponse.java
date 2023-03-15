@@ -10,6 +10,6 @@ public class ExtraDutyResponse {
     private Long workingHoursNumber ;
     private Double HourWage ;
     private Double PerformanceBonus ;
-    private ExtraDutyType extraDuty ;
-    private Benefit benefit;
+    private ExtraDutyType extraDutyType ;
+    private Long benefitId;
 }
