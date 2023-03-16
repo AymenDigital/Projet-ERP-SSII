@@ -1,6 +1,8 @@
 package com.csidigital.management.service.implementation;
 
+import com.csidigital.dao.entity.Partner;
 import com.csidigital.dao.entity.Requirement;
+import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.dao.repository.RequirementRepository;
 import com.csidigital.management.mapper.RequirementMapper;
 import com.csidigital.management.service.RequirementService;
@@ -17,6 +19,7 @@ import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +34,14 @@ public class RequirementServiceImpl implements RequirementService {
     private RequirementRepository requirementRepository ;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private PartnerRepository partnerRepository;
 
     @Override
     public RequirementResponse createRequirement(RequirementRequest request) {
         Requirement requirement = modelMapper.map(request, Requirement.class);
+
+
         Requirement requirementSaved = requirementRepository.save(requirement);
         return modelMapper.map(requirementSaved, RequirementResponse.class);
     }

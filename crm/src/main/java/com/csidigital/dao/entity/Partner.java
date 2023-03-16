@@ -2,6 +2,7 @@ package com.csidigital.dao.entity;
 
 
 import com.csidigital.shared.enumeration.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

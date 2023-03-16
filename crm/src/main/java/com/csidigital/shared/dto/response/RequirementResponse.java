@@ -7,12 +7,14 @@ import com.csidigital.shared.enumeration.RequirementType;
 import com.csidigital.shared.enumeration.WorkField;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@RequiredArgsConstructor
 
 public class RequirementResponse {
     private Long id ;
@@ -28,7 +30,8 @@ public class RequirementResponse {
     private LocalDate startDate ;
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
-    private  Integer totalCandidateNumber ;
-    private Partner partner ;
+    private Integer totalCandidateNumber ;
+
+
 
 }

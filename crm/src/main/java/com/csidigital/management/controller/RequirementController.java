@@ -4,6 +4,7 @@ import com.csidigital.management.service.implementation.RequirementServiceImpl;
 import com.csidigital.shared.dto.request.RequirementRequest;
 import com.csidigital.shared.dto.response.RequirementResponse;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,8 @@ public class RequirementController {
     }
 
     @PostMapping()
-    public RequirementResponse createRequirement(@Valid @RequestBody RequirementRequest requirementRequest){
-        return requirementService.createRequirement(requirementRequest);
+    public RequirementResponse createRequirement(@Valid @RequestBody RequirementRequest requirementRequest ){
+        return requirementService.createRequirement(requirementRequest );
     }
 
     @PutMapping("/{id}")

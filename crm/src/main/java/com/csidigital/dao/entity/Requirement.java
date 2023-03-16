@@ -4,6 +4,8 @@ import com.csidigital.shared.enumeration.Availability;
 import com.csidigital.shared.enumeration.RequirementStatus;
 import com.csidigital.shared.enumeration.RequirementType;
 import com.csidigital.shared.enumeration.WorkField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
