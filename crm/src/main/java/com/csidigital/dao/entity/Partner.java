@@ -43,7 +43,7 @@ public class Partner implements Serializable {
     private WorkField workField ;
     @Enumerated(EnumType.STRING)
     private LegalStatus legalStatus ;
-    private Byte[] logo ;
+    private String logo ;
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;

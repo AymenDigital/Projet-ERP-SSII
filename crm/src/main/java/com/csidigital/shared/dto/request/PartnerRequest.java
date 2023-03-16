@@ -35,7 +35,7 @@ public class PartnerRequest {
     private String description ;
     private WorkField workField ;
     private LegalStatus legalStatus ;
-    private Byte[] logo ;
+    private String logo ;
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
