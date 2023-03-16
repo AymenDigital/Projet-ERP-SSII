@@ -1,18 +1,12 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.*;
-import com.csidigital.dao.entity.Order;
-import com.csidigital.dao.entity.Order;
 import com.csidigital.dao.entity.Order;
 import com.csidigital.dao.repository.OrderRepository;
 import com.csidigital.shared.dto.request.OrderRequest;
-import com.csidigital.shared.dto.response.*;
-import com.csidigital.dao.repository.OrderRepository;
 import com.csidigital.management.service.OrderService;
 import com.csidigital.shared.dto.response.OrderResponse;
-import com.csidigital.shared.dto.response.OrderResponse;
-import com.csidigital.shared.dto.response.OrderResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -21,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional

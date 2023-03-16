@@ -5,19 +5,20 @@ import com.csidigital.shared.enumeration.RequirementStatus;
 import com.csidigital.shared.enumeration.RequirementType;
 import com.csidigital.shared.enumeration.WorkField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Requirement {
+public class Requirement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
@@ -40,6 +41,7 @@ public class Requirement {
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Partner partner;
 }

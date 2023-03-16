@@ -16,8 +16,8 @@ public class ExtraDutyRequest {
     private Double hourWage ;
     private Double performanceBonus ;
 
-    private ExtraDutyType extraDuty ;
+    private ExtraDutyType extraDutyType ;
 
 
-    private Benefit benefit;
+    private Long benefitNum;
 }

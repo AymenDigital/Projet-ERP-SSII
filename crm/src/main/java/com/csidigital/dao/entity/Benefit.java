@@ -1,18 +1,20 @@
 package com.csidigital.dao.entity;
 
 import com.csidigital.shared.enumeration.BenefitStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Benefit {
+public class Benefit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -27,9 +29,11 @@ public class Benefit {
     private Boolean exceptionalCosts;
     private Double monthlyFees ;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "benefit", cascade = CascadeType.ALL)
     private List<ExtraDuty> extraDuties;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "benefit", cascade = CascadeType.ALL)
     private List<WorkArrangement> workArrangements;
 

@@ -1,18 +1,18 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.Requirement;
+import com.csidigital.dao.entity.Benefit;
 import com.csidigital.dao.entity.WorkArrangement;
 
 
+import com.csidigital.dao.repository.BenefitRepository;
 import com.csidigital.dao.repository.WorkArrangementRepository;
 
-import com.csidigital.management.mapper.WorkArrangementMapper;
 import com.csidigital.management.service.WorkArrangementService;
 import com.csidigital.shared.dto.request.WorkArrangementRequest;
 
-import com.csidigital.shared.dto.response.RequirementResponse;
 import com.csidigital.shared.dto.response.WorkArrangementResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -27,14 +27,19 @@ import java.util.List;
 @AllArgsConstructor
 public class WorkArrangementServiceImpl implements WorkArrangementService {
     @Autowired
+    private BenefitRepository benefitRepository;
+    @Autowired
     private ModelMapper modelMapper;
     @Autowired
     private WorkArrangementRepository workArrangementRepository ;
     @Override
-    public WorkArrangementResponse createWorkArrangement(WorkArrangementRequest Request) {
-       WorkArrangement workArrangement= modelMapper.map(Request , WorkArrangement.class);
-        WorkArrangement savedworkArrangement = workArrangementRepository.save(workArrangement);
-       return modelMapper.map(savedworkArrangement , WorkArrangementResponse.class);
+    public WorkArrangementResponse createWorkArrangement(WorkArrangementRequest request) {
+        Benefit benefit = benefitRepository.findById(request.getBenefitNum())
+                .orElseThrow(() -> new ResourceNotFoundException("Benefit not found"));
+       WorkArrangement workArrangement= modelMapper.map(request , WorkArrangement.class);
+       workArrangement.setBenefit(benefit);
+       WorkArrangement savedWorkArrangement = workArrangementRepository.save(workArrangement);
+       return modelMapper.map(savedWorkArrangement, WorkArrangementResponse.class);
 
     }
 

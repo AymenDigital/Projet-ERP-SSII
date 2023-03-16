@@ -30,8 +30,11 @@ public class RequirementResponse {
     private LocalDate startDate ;
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
+
     private Integer totalCandidateNumber ;
 
+
+    private Long partnerId ;
 
 
 }

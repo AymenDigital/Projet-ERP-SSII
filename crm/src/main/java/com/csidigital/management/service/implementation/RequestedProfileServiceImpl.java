@@ -1,17 +1,11 @@
 package com.csidigital.management.service.implementation;
 
 import com.csidigital.dao.entity.RequestedProfile;
-import com.csidigital.dao.entity.RequestedProfile;
-import com.csidigital.dao.entity.RequestedProfile;
-import com.csidigital.dao.entity.RequestedProfile;
 import com.csidigital.dao.repository.RequestedProfileRepository;
 import com.csidigital.management.service.RequestedProfileService;
 import com.csidigital.shared.dto.request.RequestedProfileRequest;
-import com.csidigital.shared.dto.response.*;
 import com.csidigital.shared.dto.response.RequestedProfileResponse;
-import com.csidigital.shared.dto.response.RequestedProfileResponse;
-import com.csidigital.shared.dto.response.RequestedProfileResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;

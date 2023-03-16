@@ -7,5 +7,5 @@ import lombok.Data;
 public class AddressResponse {
    private  Long Id ;
    private String addressTitle ;
-   private Partner partner;
+   private Long partnerId;
 }

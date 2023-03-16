@@ -1,11 +1,14 @@
 package com.csidigital.management.service.implementation;
 
 import com.csidigital.dao.entity.Address;
+import com.csidigital.dao.entity.Partner;
 import com.csidigital.dao.repository.AddressRepository;
+import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.shared.dto.request.AddressRequest;
 import com.csidigital.shared.dto.response.AddressResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
 import com.csidigital.management.service.AddressService;
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +25,16 @@ import java.util.List;
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private PartnerRepository partnerRepository;
+
     //Add new address
     @Override
     public AddressResponse createAddress(AddressRequest request) {
+        Partner partner = partnerRepository.findById(request.getPartnerNum())
+                .orElseThrow(() -> new ResourceNotFoundException("Partner not found"));
         Address address = modelMapper.map(request, Address.class);
+        address.setPartner(partner);
         Address AddressSaved = addressRepository.save(address);
         return modelMapper.map(AddressSaved, AddressResponse.class);
     }

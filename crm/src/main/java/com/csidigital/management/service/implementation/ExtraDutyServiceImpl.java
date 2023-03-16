@@ -1,11 +1,15 @@
 package com.csidigital.management.service.implementation;
 
+import com.csidigital.dao.entity.Benefit;
 import com.csidigital.dao.entity.ExtraDuty;
+import com.csidigital.dao.entity.Partner;
+import com.csidigital.dao.repository.BenefitRepository;
 import com.csidigital.dao.repository.ExtraDutyRepository;
 import com.csidigital.management.service.ExtraDutyService;
 import com.csidigital.shared.dto.request.ExtraDutyRequest;
 import com.csidigital.shared.dto.response.ExtraDutyResponse;
-import com.csidigital.shared.exceptions.ResourceNotFoundException;
+
+import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +25,14 @@ public class ExtraDutyServiceImpl implements ExtraDutyService {
     private ExtraDutyRepository extraDutyRepository ;
     @Autowired
     private ModelMapper modelMapper;
-
+    @Autowired
+    private BenefitRepository benefitRepository;
     @Override
     public ExtraDutyResponse createExtraDuty(ExtraDutyRequest request) {
+        Benefit benefit = benefitRepository.findById(request.getBenefitNum())
+                .orElseThrow(() -> new ResourceNotFoundException("Benefit not found"));
         ExtraDuty extraDuty = modelMapper.map(request, ExtraDuty.class);
+        extraDuty.setBenefit(benefit);
         ExtraDuty extraDutySaved = extraDutyRepository.save(extraDuty);
         return modelMapper.map(extraDutySaved, ExtraDutyResponse.class);
     }

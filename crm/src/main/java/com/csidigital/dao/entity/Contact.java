@@ -3,11 +3,13 @@ package com.csidigital.dao.entity;
 import com.csidigital.shared.enumeration.Civility;
 import com.csidigital.shared.enumeration.Privilege;
 import com.csidigital.shared.enumeration.Service;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
@@ -15,10 +17,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Contact {
+public class Contact implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long contactId;
     @Enumerated(EnumType.STRING)
     private Civility civility;
     private String lastName;
@@ -34,9 +36,11 @@ public class Contact {
     @Enumerated(EnumType.STRING)
     private Privilege privilege;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
     private List<ContactNote> contactNotes;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
 

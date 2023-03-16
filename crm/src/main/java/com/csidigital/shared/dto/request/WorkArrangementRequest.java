@@ -12,8 +12,8 @@ import lombok.Data;
 public class WorkArrangementRequest {
     private WorkModel workModel ;
     private Double dailyWage;
-    private Long workingDaysWorking ;
+    private Long workingDaysNumber ;
 
 
-    private Benefit benefit;
+    private Long benefitNum;
 }
