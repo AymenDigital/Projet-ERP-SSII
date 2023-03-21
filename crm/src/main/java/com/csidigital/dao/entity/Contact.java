@@ -44,4 +44,9 @@ public class Contact implements Serializable {
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Partner partner ;
+
+
 }
