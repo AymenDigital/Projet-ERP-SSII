@@ -19,16 +19,19 @@ public class StorageService {
     private final Path rootLocation = Paths.get("upload-dir");
 
 
-    public void store(MultipartFile file) {
+    public String store(MultipartFile file) {
         try {
 
             String fileName = Integer.toString(new Random().nextInt(1000000000));
             String ext = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf('.'), file.getOriginalFilename().length());
             String name  = file.getOriginalFilename().substring(0, file.getOriginalFilename().indexOf('.'));
             String original = name + fileName + ext;
-            Files.copy(file.getInputStream(), this.rootLocation.resolve(original));
+            Path filePath = this.rootLocation.resolve(original);
+            Files.copy(file.getInputStream(),filePath);
+            return filePath.toString();
         } catch (Exception e) {
-            throw new RuntimeException("FAIL!");
+            System.err.println("Error storing file: " + e.getMessage());
+            throw new RuntimeException("Error storing file: " + e.getMessage());
         }
     }
 

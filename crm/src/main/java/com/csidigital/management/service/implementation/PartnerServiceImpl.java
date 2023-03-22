@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +24,14 @@ public class PartnerServiceImpl implements PartnerService {
   
    @Autowired
    private ModelMapper modelMapper;
+   @Autowired
+   private StorageService storageService;
 
    @Override
-   public PartnerResponse createPartner(PartnerRequest request) {
+   public PartnerResponse createPartner(MultipartFile file , PartnerRequest request) {
+      String imagePath = storageService.store(file);
       Partner partner = modelMapper.map(request, Partner.class);
+      partner.setLogo(imagePath);
       Partner partnerSaved = partnerRepository.save(partner);
       return modelMapper.map(partnerSaved, PartnerResponse.class);
    }

@@ -23,8 +23,6 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 public class PartnerController {
     @Autowired
     private PartnerServiceImpl partnerService ;
-    @Autowired
-    private StorageService storageService;
 
     @GetMapping()
     public List<PartnerResponse> getAllPartners() {
@@ -37,10 +35,10 @@ public class PartnerController {
     }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public PartnerResponse createPartner(@RequestParam("file") MultipartFile file , PartnerRequest partnerRequest){
-        storageService.store(file);
-        partnerRequest.setLogo(file.getOriginalFilename());
-        return partnerService.createPartner(partnerRequest);
+    public PartnerResponse createPartner(@RequestParam("file") MultipartFile file , @ModelAttribute PartnerRequest partnerRequest){
+
+
+        return partnerService.createPartner(file , partnerRequest);
     }
     private final java.nio.file.Path rootLocation = java.nio.file.Paths.get("upload-dir");
 
