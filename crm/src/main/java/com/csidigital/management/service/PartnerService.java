@@ -3,13 +3,16 @@ package com.csidigital.management.service;
 import com.csidigital.shared.dto.request.PartnerRequest;
 
 import com.csidigital.shared.dto.response.PartnerResponse;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import java.util.List;
 import java.util.Optional;
 
 public interface PartnerService {
-    PartnerResponse createPartner(PartnerRequest request);
+    PartnerResponse createPartner(
+            //MultipartFile file ,
+            PartnerRequest request);
     List<PartnerResponse> getAllPartners();
     PartnerResponse getPartnerById(Long id);
 

@@ -23,8 +23,6 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 public class PartnerController {
     @Autowired
     private PartnerServiceImpl partnerService ;
-    @Autowired
-    private StorageService storageService;
 
     @GetMapping()
     public List<PartnerResponse> getAllPartners() {
@@ -36,13 +34,16 @@ public class PartnerController {
         return partnerService.getPartnerById(id);
     }
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public PartnerResponse createPartner(@RequestParam("file") MultipartFile file , PartnerRequest partnerRequest){
-        storageService.store(file);
-        partnerRequest.setLogo(file.getOriginalFilename());
-        return partnerService.createPartner(partnerRequest);
+    @PostMapping/*(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)*/()
+    public PartnerResponse createPartner(
+            //@RequestParam("file") MultipartFile file ,
+                                         @RequestBody PartnerRequest partnerRequest){
+
+
+        return partnerService.createPartner(
+                //file ,
+                partnerRequest);
     }
-    private final java.nio.file.Path rootLocation = java.nio.file.Paths.get("upload-dir");
 
     @PutMapping("/{id}")
     public PartnerResponse updatePartner(@Valid @RequestBody PartnerRequest partnerRequest,
@@ -56,7 +57,7 @@ public class PartnerController {
     }
     @GetMapping(path = "/logo/{fileName}", produces = IMAGE_PNG_VALUE)
     public byte[] getPartnerLogo(@PathVariable("fileName") String fileName) throws IOException {
-        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "\\Desktop\\CSI Training\\crm\\upload-dir\\" + fileName));
+        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "\\Documents\\Projects\\csi\\crm\\upload-dir\\" + fileName));
     }
 
 }
