@@ -1,10 +1,7 @@
 package com.csidigital.shared.dto.request;
 
-import com.csidigital.dao.entity.Address;
-import com.csidigital.dao.entity.OfferedService;
+import com.csidigital.dao.entity.*;
 
-import com.csidigital.dao.entity.Partner;
-import com.csidigital.dao.entity.Requirement;
 import com.csidigital.shared.enumeration.*;
 
 import jakarta.persistence.OneToMany;
@@ -43,6 +40,7 @@ public class PartnerRequest {
 
     private List<Requirement> requirements ;
 
+    private List<Contact> contacts ;
 
     private List<Address> addresses;
 

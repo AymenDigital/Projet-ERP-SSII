@@ -60,4 +60,8 @@ public class Partner implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
     private List<Requirement> requirements;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
+    private List<Contact> contacts ;
 }
