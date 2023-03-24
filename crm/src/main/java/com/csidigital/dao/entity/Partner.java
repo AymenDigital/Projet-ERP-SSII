@@ -36,8 +36,7 @@ public class Partner implements Serializable {
     private RefPhoneNumber refPhoneNumber2;
     private Integer postCode ;
     private String city ;
-    @Enumerated(EnumType.STRING)
-    private Country country ;
+    private String country ;
     private String description ;
     @Enumerated(EnumType.STRING)
     private WorkField workField ;

@@ -18,17 +18,27 @@ import java.util.Random;
 public class StorageService {
     private final Path rootLocation = Paths.get("upload-dir");
 
-
+    public StorageService() {
+        init();
+    }
     public String store(MultipartFile file) {
         try {
-
+            System.out.println(rootLocation);
             String fileName = Integer.toString(new Random().nextInt(1000000000));
+            System.out.println(fileName);
             String ext = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf('.'), file.getOriginalFilename().length());
+            System.out.println(ext);
             String name  = file.getOriginalFilename().substring(0, file.getOriginalFilename().indexOf('.'));
+            System.out.println(name);
             String original = name + fileName + ext;
+            System.out.println(original);
             Path filePath = this.rootLocation.resolve(original);
+            System.out.println(filePath);
+            if(file.isEmpty()) {
+                throw new RuntimeException("File is empty!");
+            }
             Files.copy(file.getInputStream(),filePath);
-            return filePath.toString();
+            return filePath.toUri().toString();
         } catch (Exception e) {
             System.err.println("Error storing file: " + e.getMessage());
             throw new RuntimeException("Error storing file: " + e.getMessage());
@@ -58,9 +68,9 @@ public class StorageService {
 
     public void init() {
         try {
-
-
-            Files.createDirectory(rootLocation);
+            if (!Files.exists(rootLocation)) {
+                Files.createDirectory(rootLocation);
+            }
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize storage!");
         }
