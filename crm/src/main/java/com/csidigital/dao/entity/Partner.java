@@ -30,12 +30,13 @@ public class Partner implements Serializable {
     private String ceoLastName ;
     private Long phoneNumber ;
     private Long phoneNumberTwo ;
-    @Enumerated(EnumType.STRING)
-    private RefPhoneNumber refPhoneNumber;
-    @Enumerated(EnumType.STRING)
-    private RefPhoneNumber refPhoneNumber2;
+    //@Enumerated(EnumType.STRING)
+    private Long refPhoneNumber;
+    //@Enumerated(EnumType.STRING)
+    private Long refPhoneNumber2;
     private Integer postCode ;
     private String city ;
+    //@Enumerated(EnumType.STRING)
     private String country ;
     private String description ;
     @Enumerated(EnumType.STRING)

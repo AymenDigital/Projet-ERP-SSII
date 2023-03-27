@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface PartnerService {
     PartnerResponse createPartner(
-            //MultipartFile file ,
+            MultipartFile file ,
             PartnerRequest request);
     List<PartnerResponse> getAllPartners();
     PartnerResponse getPartnerById(Long id);

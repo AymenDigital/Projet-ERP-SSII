@@ -19,7 +19,7 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 
 @RestController
 @RequestMapping("/crm/partners")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class PartnerController {
     @Autowired
     private PartnerServiceImpl partnerService ;
@@ -34,15 +34,10 @@ public class PartnerController {
         return partnerService.getPartnerById(id);
     }
 
-    @PostMapping/*(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)*/()
-    public PartnerResponse createPartner(
-            //@RequestParam("file") MultipartFile file ,
-                                         @RequestBody PartnerRequest partnerRequest){
-
-
-        return partnerService.createPartner(
-                //file ,
-                partnerRequest);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public PartnerResponse createPartner(@RequestParam("file") MultipartFile file ,
+                                          PartnerRequest partnerRequest){
+        return partnerService.createPartner(file, partnerRequest);
     }
 
     @PutMapping("/{id}")
