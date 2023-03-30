@@ -62,9 +62,13 @@ public class RequirementServiceImpl implements RequirementService {
 
     @Override
     public RequirementResponse updateRequirement(RequirementRequest request, Long id) {
+        Partner partner = partnerRepository.findById(request.getPartnerNum())
+                .orElseThrow(() -> new ResourceNotFoundException("Partner not found"));
         Requirement existingRequirement = requirementRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("Requirement with id: " + id + " not found"));
+
         modelMapper.map(request, existingRequirement);
+        existingRequirement.setPartner(partner);
         Requirement savedRequirement = requirementRepository.save(existingRequirement);
         return modelMapper.map(savedRequirement, RequirementResponse.class);
     }

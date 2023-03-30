@@ -24,11 +24,11 @@ public class PartnerRequest {
     private String ceoLastName ;
     private Long phoneNumber ;
     private Long phoneNumberTwo ;
-    private RefPhoneNumber refPhoneNumber;
-    private RefPhoneNumber refPhoneNumber2;
+    private Long refPhoneNumber;
+    private Long refPhoneNumber2;
     private Integer postCode ;
     private String city ;
-    private Country country ;
+    private String country ;
     private String description ;
     private WorkField workField ;
     private LegalStatus legalStatus ;

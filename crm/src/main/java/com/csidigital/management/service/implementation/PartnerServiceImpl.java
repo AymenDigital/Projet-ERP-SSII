@@ -28,10 +28,11 @@ public class PartnerServiceImpl implements PartnerService {
    private StorageService storageService;
 
    @Override
-   public PartnerResponse createPartner(MultipartFile file , PartnerRequest request) {
-      String imagePath = storageService.store(file);
+   public PartnerResponse createPartner( PartnerRequest request, MultipartFile file ) {
+
       Partner partner = modelMapper.map(request, Partner.class);
-      partner.setLogo(imagePath);
+      storageService.store(file);
+      partner.setLogo(file.getOriginalFilename());
       Partner partnerSaved = partnerRepository.save(partner);
       return modelMapper.map(partnerSaved, PartnerResponse.class);
    }
