@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -44,9 +45,9 @@ public class Partner implements Serializable {
     @Enumerated(EnumType.STRING)
     private LegalStatus legalStatus ;
     private String logo ;
-    private LocalDate activityStartDate;
-    private LocalDate activityEndDate;
-    private LocalDate partnerShipDate;
+    private LocalDateTime activityStartDate;
+    private LocalDateTime activityEndDate;
+    private LocalDateTime partnerShipDate;
     @Enumerated(EnumType.STRING)
     private Provenance provenance ;
 

@@ -34,10 +34,9 @@ public class PartnerController {
         return partnerService.getPartnerById(id);
     }
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public PartnerResponse createPartner(@RequestParam("file") MultipartFile file ,
-                                          PartnerRequest partnerRequest){
-        return partnerService.createPartner(file, partnerRequest);
+    @PostMapping
+    public PartnerResponse createPartner(@RequestBody PartnerRequest partnerRequest){
+        return partnerService.createPartner(partnerRequest);
     }
 
     @PutMapping("/{id}")
