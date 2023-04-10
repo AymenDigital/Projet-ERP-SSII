@@ -15,6 +15,7 @@ public class AppointmentRequest {
     private LocalDate date;
     private LocalTime time;
     private Duration duration;
+    private String location;
     private String subject;
     private Long contactNum;
 }

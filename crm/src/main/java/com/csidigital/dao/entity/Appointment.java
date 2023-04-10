@@ -23,7 +23,9 @@ public class Appointment implements Serializable {
     private LocalDate date;
     private LocalTime time;
     private Duration duration;
+    private String location;
     private String subject;
+    private String feedBack;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)

@@ -8,6 +8,7 @@ import com.csidigital.shared.dto.request.AppointmentRequest;
 import com.csidigital.shared.dto.response.AppointmentResponse;
 import com.csidigital.management.service.AppointmentService;
 import com.csidigital.shared.exception.ResourceNotFoundException;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     private ModelMapper modelMapper;
     @Autowired
     private ContactRepository contactRepository;
+    @Autowired
+    private EntityManager entityManager;
 
     @Override
     public AppointmentResponse createAppointment(AppointmentRequest request) {
