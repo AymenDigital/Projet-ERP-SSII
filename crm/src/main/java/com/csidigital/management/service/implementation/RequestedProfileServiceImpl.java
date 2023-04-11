@@ -17,7 +17,6 @@ import java.util.List;
 
 @Service
 @Transactional
-@AllArgsConstructor
 public class RequestedProfileServiceImpl implements RequestedProfileService {
     @Autowired
     private RequestedProfileRepository requestedProfileRepository ;

@@ -4,7 +4,6 @@ import com.csidigital.dao.entity.*;
 
 import com.csidigital.shared.enumeration.*;
 
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 
@@ -15,7 +14,7 @@ import java.util.List;
 
 public class PartnerRequest {
 
-    private String name ;
+    private String name1;
     private CompanyStatus companyStatus ;
     private Integer staffNumber;
     private String parentCompany;
@@ -40,7 +39,7 @@ public class PartnerRequest {
 
     private List<Requirement> requirements ;
 
-    private List<Contact> contacts ;
+    private List<ContactPartner> contactPartners;
 
     private List<Address> addresses;
 

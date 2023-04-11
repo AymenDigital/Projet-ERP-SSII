@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class Partner implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-    private String name ;
+    private String name1;
     @Enumerated(EnumType.STRING)
     private CompanyStatus companyStatus ;
     private Integer staffNumber;
@@ -64,5 +63,5 @@ public class Partner implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
-    private List<Contact> contacts ;
+    private List<ContactPartner> contactPartners;
 }

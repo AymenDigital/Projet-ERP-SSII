@@ -24,7 +24,6 @@ import java.util.List;
 
 @Service
 @Transactional
-@AllArgsConstructor
 public class WorkArrangementServiceImpl implements WorkArrangementService {
     @Autowired
     private BenefitRepository benefitRepository;

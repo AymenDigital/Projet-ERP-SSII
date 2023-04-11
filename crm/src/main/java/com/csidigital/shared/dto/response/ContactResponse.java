@@ -25,5 +25,4 @@ public class ContactResponse {
     private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
-    private Long partnerId ;
 }

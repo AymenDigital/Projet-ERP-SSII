@@ -21,8 +21,6 @@ import java.util.List;
 
 @Service
 @Transactional
-
-
 public class ContactNoteServiceImpl implements ContactNoteService {
     @Autowired
     private ContactNoteRepository contactNoteRepository ;

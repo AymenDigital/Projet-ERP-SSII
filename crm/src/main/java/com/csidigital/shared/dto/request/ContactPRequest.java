@@ -8,8 +8,9 @@ import com.csidigital.shared.enumeration.Service;
 import lombok.Data;
 
 import java.util.List;
+
 @Data
-public class ContactRequest {
+public class ContactPRequest {
     private Civility civility;
     private String lastName;
     private String firstName;
@@ -23,4 +24,5 @@ public class ContactRequest {
     private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
+    private Long partnerNum ;
 }

@@ -1,4 +1,4 @@
-package com.csidigital.shared.dto.request;
+package com.csidigital.shared.dto.response;
 
 import com.csidigital.dao.entity.Appointment;
 import com.csidigital.dao.entity.ContactNote;
@@ -9,7 +9,9 @@ import lombok.Data;
 
 import java.util.List;
 @Data
-public class ContactRequest {
+public class PartnerContactResponse {
+    private Long id;
+
     private Civility civility;
     private String lastName;
     private String firstName;
@@ -23,4 +25,5 @@ public class ContactRequest {
     private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
+    private Long partnerId ;
 }

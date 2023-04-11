@@ -18,7 +18,6 @@ import java.util.List;
 
 @Service
 @Transactional
-@AllArgsConstructor
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository ;

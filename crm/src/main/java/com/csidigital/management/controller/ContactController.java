@@ -27,14 +27,14 @@ public class ContactController {
     }
 
     @PostMapping()
-    public ContactResponse createContact(@Valid @RequestBody ContactRequest contactRequest){
-        return contactService.createContact(contactRequest);
+    public ContactResponse createContact(@Valid @RequestBody ContactRequest request){
+        return contactService.createContact(request);
     }
 
     @PutMapping("/{id}")
-    public ContactResponse updateContact(@Valid @RequestBody ContactRequest contactRequest,
-                                                 @PathVariable Long id){
-        return contactService.updateContact(contactRequest, id);
+    public ContactResponse updateContact(@Valid @RequestBody ContactRequest request,
+                                         @PathVariable Long id){
+        return contactService.updateContact(request, id);
     }
 
     @DeleteMapping("/{id}")

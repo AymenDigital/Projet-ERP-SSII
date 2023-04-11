@@ -19,7 +19,6 @@ import java.util.List;
 
 @Service
 @Transactional
-@AllArgsConstructor
 public class OfferedServiceServiceImpl implements OfferedServiceService {
     @Autowired
     private OfferedServiceRepository offeredServiceRepository ;

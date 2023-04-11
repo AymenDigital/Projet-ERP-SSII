@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 @Transactional
-@AllArgsConstructor
 public class RequirementServiceImpl implements RequirementService {
     @Autowired
     private PartnerRepository partnerRepository;
@@ -37,7 +36,6 @@ public class RequirementServiceImpl implements RequirementService {
         requirement.setPartner(partner);
         Requirement savedRequirement = requirementRepository.save(requirement);
         return modelMapper.map(savedRequirement, RequirementResponse.class);
-
     }
 
     @Override
