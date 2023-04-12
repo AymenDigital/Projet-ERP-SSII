@@ -39,4 +39,5 @@ public class PartnerResponse {
 
     private List<OfferedService> offeredServices;
     private List<ContactPartner> contactPartners;
+    private List<SocialMedia> socialMedias;
 }
