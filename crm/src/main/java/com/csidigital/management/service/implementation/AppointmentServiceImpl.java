@@ -14,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     private ModelMapper modelMapper;
     @Autowired
     private ContactRepository contactRepository;
-    @Autowired
-    private EntityManager entityManager;
 
     @Override
     public AppointmentResponse createAppointment(AppointmentRequest request) {
@@ -35,6 +34,8 @@ public class AppointmentServiceImpl implements AppointmentService {
                 .orElseThrow(() -> new ResourceNotFoundException("Contact not found"));
         Appointment appointment = modelMapper.map(request, Appointment.class);
         appointment.setContact(contact);
+        Duration fromMinutes = Duration.ofMinutes(request.getDuration());
+        appointment.setDuration(fromMinutes);
         Appointment appointmentSaved = appointmentRepository.save(appointment);
         return modelMapper.map(appointmentSaved, AppointmentResponse.class);
     }
@@ -65,6 +66,8 @@ public class AppointmentServiceImpl implements AppointmentService {
         Appointment existingAppointment = appointmentRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("Appointment with id: " + id + " not found"));
         modelMapper.map(request, existingAppointment);
+        Duration fromMinutes = Duration.ofMinutes(request.getDuration());
+        existingAppointment.setDuration(fromMinutes);
         Appointment savedAppointment = appointmentRepository.save(existingAppointment);
         return modelMapper.map(savedAppointment, AppointmentResponse.class);
     }

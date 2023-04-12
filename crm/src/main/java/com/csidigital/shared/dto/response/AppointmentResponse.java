@@ -17,7 +17,6 @@ public class AppointmentResponse {
     private Duration duration;
     private String subject;
     private String location;
-
     private String feedBack;
     private Long contactId;
     private List<AppointmentNote> appointmentNotes;
