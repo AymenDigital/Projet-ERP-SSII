@@ -14,7 +14,9 @@ import java.time.LocalTime;
 public class AppointmentRequest {
     private LocalDate date;
     private LocalTime time;
-    private Duration duration;
+    private Long duration;
     private String subject;
+
     private Long contactNum;
+
 }

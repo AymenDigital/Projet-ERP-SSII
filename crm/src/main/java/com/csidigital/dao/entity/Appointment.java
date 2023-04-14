@@ -22,7 +22,7 @@ public class Appointment implements Serializable {
     private Long id;
     private LocalDate date;
     private LocalTime time;
-    private Duration duration;
+    private Long duration;
     private String subject;
 
     @JsonIgnore

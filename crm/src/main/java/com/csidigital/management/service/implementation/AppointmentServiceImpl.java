@@ -31,24 +31,36 @@ public class AppointmentServiceImpl implements AppointmentService {
         Contact contact = contactRepository.findById(request.getContactNum())
                 .orElseThrow(() -> new ResourceNotFoundException("Contact not found"));
         Appointment appointment = modelMapper.map(request, Appointment.class);
+
         appointment.setContact(contact);
         Appointment appointmentSaved = appointmentRepository.save(appointment);
         return modelMapper.map(appointmentSaved, AppointmentResponse.class);
     }
 
+//    @Override
+//    public List<AppointmentResponse> getAllAppointments() {
+//        List<Appointment> appointments = appointmentRepository.findAll();
+//        List<AppointmentResponse> appointmentList = new ArrayList<>();
+//
+//        for (Appointment appointment : appointments) {
+//            AppointmentResponse response = modelMapper.map(appointment, AppointmentResponse.class);
+//            appointmentList.add(response);
+//        }
+//
+//        return appointmentList;
+//    }
+
     @Override
     public List<AppointmentResponse> getAllAppointments() {
         List<Appointment> appointments = appointmentRepository.findAll();
         List<AppointmentResponse> appointmentList = new ArrayList<>();
-
         for (Appointment appointment : appointments) {
             AppointmentResponse response = modelMapper.map(appointment, AppointmentResponse.class);
+            response.setContactN(appointment.getContact().getFirstName());
             appointmentList.add(response);
         }
-
         return appointmentList;
     }
-
     @Override
     public AppointmentResponse getAppointmentById(Long id) {
         Appointment appointment = appointmentRepository.findById(id)

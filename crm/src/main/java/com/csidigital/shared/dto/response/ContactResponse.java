@@ -26,4 +26,5 @@ public class ContactResponse {
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
     private Long partnerId ;
+    private String partnerN;
 }

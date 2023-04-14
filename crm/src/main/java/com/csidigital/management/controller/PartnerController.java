@@ -35,12 +35,12 @@ public class PartnerController {
     }
 
     @PostMapping(/*consumes = MediaType.MULTIPART_FORM_DATA_VALUE*/)
-    public PartnerResponse createPartner( PartnerRequest partnerRequest , @RequestParam("file") MultipartFile file){
+    public PartnerResponse createPartner(@RequestBody PartnerRequest partnerRequest /*, @RequestParam("file") MultipartFile file*/){
 
 
-        return partnerService.createPartner( partnerRequest, file);
+        return partnerService.createPartner( partnerRequest/*, file*/);
     }
-    private final java.nio.file.Path rootLocation = java.nio.file.Paths.get("upload-dir");
+    //private final java.nio.file.Path rootLocation = java.nio.file.Paths.get("upload-dir");
 
     @PutMapping("/{id}")
     public PartnerResponse updatePartner(@Valid @RequestBody PartnerRequest partnerRequest,
