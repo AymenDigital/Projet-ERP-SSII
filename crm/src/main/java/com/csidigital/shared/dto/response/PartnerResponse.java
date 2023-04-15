@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class PartnerResponse {
     private Long id ;
-    private String name1;
+    private String name;
     private CompanyStatus companyStatus ;
     private Integer staffNumber;
     private String parentCompany;

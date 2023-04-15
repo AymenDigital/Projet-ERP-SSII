@@ -20,7 +20,7 @@ public class Partner implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-    private String name1;
+    private String name;
     @Enumerated(EnumType.STRING)
     private CompanyStatus companyStatus ;
     private Integer staffNumber;

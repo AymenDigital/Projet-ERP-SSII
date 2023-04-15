@@ -11,6 +11,7 @@ public interface ContactPService {
     public PartnerContactResponse createPartnerContact(@RequestBody ContactPRequest contactPRequest);
     public List<PartnerContactResponse>getAllPartnerContacts();
     public PartnerContactResponse getPartnerContactById(@RequestParam Long id);
+    List<PartnerContactResponse> findByPartnerId(Long partnerId);
     public PartnerContactResponse updatePartnerContact(@RequestParam Long id,
                                                        @RequestBody ContactPRequest contactPRequest);
     public void deletePartnerContact(@RequestParam Long id);

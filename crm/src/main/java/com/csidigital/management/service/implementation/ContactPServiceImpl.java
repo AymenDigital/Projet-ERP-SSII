@@ -57,6 +57,17 @@ public class ContactPServiceImpl implements ContactPService {
     }
 
     @Override
+    public List<PartnerContactResponse> findByPartnerId(Long id) {
+        List<ContactPartner> contactPartnerList = partnerContactRepository.findByPartnerId(id);
+        List<PartnerContactResponse> partnerContactList = new ArrayList<>();
+        for (ContactPartner contactPartner : contactPartnerList) {
+            PartnerContactResponse response = modelMapper.map(contactPartner, PartnerContactResponse.class);
+            partnerContactList.add(response);
+        }
+        return partnerContactList;
+    }
+
+    @Override
     public PartnerContactResponse updatePartnerContact(Long id, ContactPRequest request) {
         ContactPartner existingContactPartner = partnerContactRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("PartnerContact with id: " + id + " not found"));

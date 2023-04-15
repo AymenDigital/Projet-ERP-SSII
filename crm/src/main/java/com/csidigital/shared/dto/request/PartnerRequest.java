@@ -14,7 +14,7 @@ import java.util.List;
 
 public class PartnerRequest {
 
-    private String name1;
+    private String name;
     private CompanyStatus companyStatus ;
     private Integer staffNumber;
     private String parentCompany;

@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/crm/partnerContacts")
 @CrossOrigin("*")
-public class ContactPartner {
+public class ContactPartnerController {
     @Autowired
     private ContactPServiceImpl partnerContactService;
     @GetMapping()
@@ -23,6 +23,11 @@ public class ContactPartner {
     @GetMapping("/{id}")
     public PartnerContactResponse getPartnerContactById(@PathVariable Long id){
         return partnerContactService.getPartnerContactById(id);
+    }
+
+    @GetMapping("/{id}/partner")
+    public List<PartnerContactResponse> getContactsByPartnerId(@PathVariable Long id){
+        return partnerContactService.findByPartnerId(id);
     }
 
     @PostMapping()
