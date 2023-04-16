@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 public class ContactResponse {
     private Long id;
+
     private Civility civility;
     private String lastName;
     private String firstName;
@@ -24,5 +25,5 @@ public class ContactResponse {
     private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
-    private Long partnerId;
+    private Long partnerId ;
 }

@@ -1,6 +1,5 @@
 package com.csidigital.management.controller;
 
-import com.csidigital.management.service.implementation.AppointmentServiceImpl;
 import com.csidigital.shared.dto.request.AppointmentRequest;
 import com.csidigital.shared.dto.response.AppointmentResponse;
 import jakarta.validation.Valid;

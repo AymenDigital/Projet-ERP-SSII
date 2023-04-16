@@ -1,7 +1,6 @@
 package com.csidigital.shared.dto.request;
 
 
-import com.csidigital.dao.entity.Partner;
 import lombok.Data;
 
 

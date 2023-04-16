@@ -1,6 +1,5 @@
 package com.csidigital.shared.dto.response;
 
-import com.csidigital.dao.entity.Partner;
 import com.csidigital.shared.enumeration.Availability;
 import com.csidigital.shared.enumeration.RequirementStatus;
 import com.csidigital.shared.enumeration.RequirementType;
@@ -11,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @RequiredArgsConstructor

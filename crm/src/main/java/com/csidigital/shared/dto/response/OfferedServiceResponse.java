@@ -1,6 +1,5 @@
 package com.csidigital.shared.dto.response;
 
-import com.csidigital.dao.entity.Partner;
 import com.csidigital.shared.enumeration.ServiceType;
 import lombok.Data;
 

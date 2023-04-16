@@ -1,6 +1,5 @@
 package com.csidigital.management.controller;
 
-import com.csidigital.management.service.implementation.ExtraDutyServiceImpl;
 import com.csidigital.shared.dto.request.ExtraDutyRequest;
 import com.csidigital.shared.dto.response.ExtraDutyResponse;
 import jakarta.validation.Valid;

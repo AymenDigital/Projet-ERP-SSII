@@ -1,9 +1,7 @@
 package com.csidigital.shared.dto.response;
 
-import com.csidigital.dao.entity.Contact;
 import lombok.Data;
 
-import java.time.Duration;
 import java.time.LocalDate;
 
 @Data

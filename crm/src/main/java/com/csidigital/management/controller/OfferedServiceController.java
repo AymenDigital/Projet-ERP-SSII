@@ -1,6 +1,5 @@
 package com.csidigital.management.controller;
 
-import com.csidigital.management.service.implementation.OfferedServiceServiceImpl;
 import com.csidigital.shared.dto.request.OfferedServiceRequest;
 import com.csidigital.shared.dto.response.OfferedServiceResponse;
 import jakarta.validation.Valid;

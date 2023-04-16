@@ -1,6 +1,5 @@
 package com.csidigital.management.service;
 
-import com.csidigital.shared.dto.request.ContactNoteRequest;
 import com.csidigital.shared.dto.response.ContactNoteResponse;
 
 import java.util.List;

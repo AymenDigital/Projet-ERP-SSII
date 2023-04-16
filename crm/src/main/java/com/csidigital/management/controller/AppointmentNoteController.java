@@ -1,11 +1,7 @@
 package com.csidigital.management.controller;
 
-import com.csidigital.management.service.implementation.AppointmentNoteServiceImpl;
-import com.csidigital.management.service.implementation.AppointmentServiceImpl;
 import com.csidigital.shared.dto.request.AppointmentNoteRequest;
-import com.csidigital.shared.dto.request.AppointmentRequest;
 import com.csidigital.shared.dto.response.AppointmentNoteResponse;
-import com.csidigital.shared.dto.response.AppointmentResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

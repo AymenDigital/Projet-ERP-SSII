@@ -1,7 +1,5 @@
 package com.csidigital.management.controller;
 
-import com.csidigital.management.service.implementation.ContactServiceImpl;
-import com.csidigital.shared.dto.request.ContactRequest;
 import com.csidigital.shared.dto.response.ContactResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
