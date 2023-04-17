@@ -1,14 +1,13 @@
 package com.csidigital.management.controller;
 
+import com.csidigital.dao.entity.Contact;
+import com.csidigital.dao.entity.Requirement;
 import com.csidigital.management.service.implementation.PartnerServiceImpl;
-import com.csidigital.management.service.implementation.StorageService;
 import com.csidigital.shared.dto.request.PartnerRequest;
 import com.csidigital.shared.dto.response.PartnerResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,6 +31,14 @@ public class PartnerController {
     @GetMapping("/{id}")
     public PartnerResponse getPartnerById(@PathVariable Long id){
         return partnerService.getPartnerById(id);
+    }
+    @GetMapping("/{id}/requirements")
+    public List<Requirement> getPartnerReqById(@PathVariable Long id){
+        return partnerService.getPartnerReqById(id);
+    }
+    @GetMapping("/{id}/contacts")
+    public List<Contact> getPartnerContactById(@PathVariable Long id){
+        return partnerService.getPartnerContactById(id);
     }
 
     @PostMapping(/*consumes = MediaType.MULTIPART_FORM_DATA_VALUE*/)

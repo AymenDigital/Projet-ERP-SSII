@@ -61,6 +61,7 @@ public class ContactServiceImpl implements ContactService {
         return contactResponse;
     }
 
+
     @Override
     public ContactResponse updateContact(ContactRequest request, Long id) {
         Partner partner = null;
