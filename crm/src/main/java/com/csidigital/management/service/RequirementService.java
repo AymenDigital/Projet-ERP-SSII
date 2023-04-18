@@ -14,7 +14,7 @@ public interface RequirementService {
     RequirementResponse createRequirement(RequirementRequest request );
     List<RequirementResponse> getAllRequirements();
     RequirementResponse getRequirementById(Long id);
-
+    List<RequirementResponse> getByPartnerId(Long id);
     RequirementResponse updateRequirement(RequirementRequest request, Long id);
 
     void deleteRequirement(Long id);

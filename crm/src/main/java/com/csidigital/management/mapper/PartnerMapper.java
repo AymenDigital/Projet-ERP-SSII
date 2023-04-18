@@ -1,5 +1,6 @@
 package com.csidigital.management.mapper;
 
+import com.csidigital.dao.entity.Partner;
 import com.csidigital.shared.dto.request.PartnerRequest;
 import com.csidigital.shared.dto.response.PartnerResponse;
 import org.springframework.beans.BeanUtils;

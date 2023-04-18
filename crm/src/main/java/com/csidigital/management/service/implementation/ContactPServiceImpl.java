@@ -57,7 +57,7 @@ public class ContactPServiceImpl implements ContactPService {
     }
 
     @Override
-    public List<PartnerContactResponse> findByPartnerId(Long id) {
+    public List<PartnerContactResponse> getByPartnerId(Long id) {
         List<ContactPartner> contactPartnerList = partnerContactRepository.findByPartnerId(id);
         List<PartnerContactResponse> partnerContactList = new ArrayList<>();
         for (ContactPartner contactPartner : contactPartnerList) {

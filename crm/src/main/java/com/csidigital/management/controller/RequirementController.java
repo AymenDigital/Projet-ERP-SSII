@@ -1,5 +1,6 @@
 package com.csidigital.management.controller;
 
+import com.csidigital.management.service.implementation.RequirementServiceImpl;
 import com.csidigital.shared.dto.request.RequirementRequest;
 import com.csidigital.shared.dto.response.RequirementResponse;
 import jakarta.validation.Valid;
@@ -22,6 +23,11 @@ public class RequirementController {
     @GetMapping("/{id}")
     public RequirementResponse getRequirementById(@PathVariable Long id){
         return requirementService.getRequirementById(id);
+    }
+
+    @GetMapping("/{id}/partner")
+    public List<RequirementResponse> getRequirementsByPartnerId(@PathVariable Long id){
+        return requirementService.getByPartnerId(id);
     }
 
     @PostMapping()

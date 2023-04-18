@@ -27,7 +27,7 @@ public class ContactPartnerController {
 
     @GetMapping("/{id}/partner")
     public List<PartnerContactResponse> getContactsByPartnerId(@PathVariable Long id){
-        return partnerContactService.findByPartnerId(id);
+        return partnerContactService.getByPartnerId(id);
     }
 
     @PostMapping()
