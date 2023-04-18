@@ -1,7 +1,9 @@
 package com.csidigital.management.controller;
 
+import com.csidigital.dao.entity.Address;
 import com.csidigital.dao.entity.Contact;
 import com.csidigital.dao.entity.Requirement;
+import com.csidigital.dao.entity.SocialMedia;
 import com.csidigital.management.service.implementation.PartnerServiceImpl;
 import com.csidigital.shared.dto.request.PartnerRequest;
 import com.csidigital.shared.dto.response.PartnerResponse;
@@ -39,6 +41,14 @@ public class PartnerController {
     @GetMapping("/{id}/contacts")
     public List<Contact> getPartnerContactById(@PathVariable Long id){
         return partnerService.getPartnerContactById(id);
+    }
+    @GetMapping("/{id}/addresses")
+    public List<Address> getPartnerAddressById(@PathVariable Long id){
+        return partnerService.getPartnerAddressById(id);
+    }
+    @GetMapping("/{id}/socialMedias")
+    public List<SocialMedia> getPartnerSocialMediasById(@PathVariable Long id){
+        return partnerService.getPartnerSocialMediasById(id);
     }
 
     @PostMapping(/*consumes = MediaType.MULTIPART_FORM_DATA_VALUE*/)

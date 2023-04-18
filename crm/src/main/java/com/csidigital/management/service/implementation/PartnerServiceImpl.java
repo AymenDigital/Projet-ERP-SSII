@@ -1,8 +1,6 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.Contact;
-import com.csidigital.dao.entity.Partner;
-import com.csidigital.dao.entity.Requirement;
+import com.csidigital.dao.entity.*;
 import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.shared.dto.request.PartnerRequest;
 import com.csidigital.shared.dto.response.PartnerResponse;
@@ -74,6 +72,20 @@ public class PartnerServiceImpl implements PartnerService {
       List<Contact> contact = partner.getContacts();
       //RequirementResponse requirementResponse = modelMapper.map(requirement, RequirementResponse.class);
       return contact;
+   }
+   public List<Address> getPartnerAddressById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      List<Address> address = partner.getAddresses();
+      //RequirementResponse requirementResponse = modelMapper.map(requirement, RequirementResponse.class);
+      return address;
+   }
+   public List<SocialMedia> getPartnerSocialMediasById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      List<SocialMedia> socialMedia = partner.getSocialMedias();
+      //RequirementResponse requirementResponse = modelMapper.map(requirement, RequirementResponse.class);
+      return socialMedia;
    }
    @Override
    public PartnerResponse updatePartner(PartnerRequest request, Long id) {
