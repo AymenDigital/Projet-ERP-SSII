@@ -48,6 +48,7 @@ public class SocialMediaServiceImpl implements SocialMediaService {
         return socialMediaList;
     }
 
+
     @Override
     public SocialMediaResponse getSocialMediaById(Long id) {
         SocialMedia socialMedia = socialMediaRepository.findById(id)

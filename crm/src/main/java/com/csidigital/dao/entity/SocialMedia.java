@@ -16,6 +16,7 @@ public class SocialMedia implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private SocialMediaName name;
     private String link;
     @ManyToOne(fetch = FetchType.LAZY)

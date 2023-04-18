@@ -44,6 +44,5 @@ public class PartnerRequest {
     private List<Address> addresses;
 
     private List<OfferedService> offeredServices;
-    private List<SocialMedia> socialMedias;
-
+    private List<SocialMedia> socialMedias ;
 }

@@ -42,6 +42,7 @@ public class Contact implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
+
     private List<Appointment> appointments;
 
     @JsonIgnore

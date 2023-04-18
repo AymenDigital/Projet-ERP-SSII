@@ -17,7 +17,7 @@ public class Address implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private  String  addressTitle;
-
+    private String street ;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Partner partner;

@@ -6,5 +6,6 @@ import lombok.Data;
 public class AddressResponse {
    private  Long Id ;
    private String addressTitle ;
+   private String street ;
    private Long partnerId;
 }

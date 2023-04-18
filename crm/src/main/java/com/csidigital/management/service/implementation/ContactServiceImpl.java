@@ -30,8 +30,8 @@ public class ContactServiceImpl implements ContactService {
     public ContactResponse createContact(ContactRequest request) {
         Partner partner = null;
         if (request.getPartnerNum() != null) {
-            partner = partnerRepository.findById(request.getPartnerNum())
-                    .orElseThrow();}
+         partner = partnerRepository.findById(request.getPartnerNum())
+        .orElseThrow();}
         Contact contact = modelMapper.map(request, Contact.class);
 
         contact.setPartner(partner);
@@ -61,12 +61,13 @@ public class ContactServiceImpl implements ContactService {
         return contactResponse;
     }
 
+
     @Override
     public ContactResponse updateContact(ContactRequest request, Long id) {
         Partner partner = null;
         if (request.getPartnerNum() != null) {
-            partner = partnerRepository.findById(request.getPartnerNum())
-                    .orElseThrow(() -> new ResourceNotFoundException("Partner not found"));}
+         partner = partnerRepository.findById(request.getPartnerNum())
+                .orElseThrow(() -> new ResourceNotFoundException("Partner not found"));}
         Contact existingContact = contactRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("Contact with id: " + id + " not found"));
 

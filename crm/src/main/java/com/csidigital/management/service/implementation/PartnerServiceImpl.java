@@ -1,11 +1,12 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.Partner;
+import com.csidigital.dao.entity.*;
 import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.shared.dto.request.PartnerRequest;
 import com.csidigital.shared.dto.response.PartnerResponse;
 
 import com.csidigital.management.service.PartnerService;
+import com.csidigital.shared.dto.response.RequirementResponse;
 import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -28,12 +29,12 @@ public class PartnerServiceImpl implements PartnerService {
    private StorageService storageService;
 
    @Override
-   public PartnerResponse createPartner(
-           //MultipartFile file,
-           PartnerRequest request) {
-      //String imagePath = storageService.store(file);
+   public PartnerResponse createPartner( PartnerRequest request/*, MultipartFile file*/ ) {
+
       Partner partner = modelMapper.map(request, Partner.class);
-      //partner.setLogo(imagePath);
+
+      //storageService.store(file);
+      //partner.setLogo(file.getOriginalFilename());
       Partner partnerSaved = partnerRepository.save(partner);
       return modelMapper.map(partnerSaved, PartnerResponse.class);
    }
@@ -58,7 +59,34 @@ public class PartnerServiceImpl implements PartnerService {
       PartnerResponse partnerResponse = modelMapper.map(partner, PartnerResponse.class);
       return partnerResponse;
    }
-
+   public List<Requirement> getPartnerReqById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      List<Requirement> requirement = partner.getRequirements();
+      //RequirementResponse requirementResponse = modelMapper.map(requirement, RequirementResponse.class);
+      return requirement;
+   }
+   public List<Contact> getPartnerContactById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      List<Contact> contact = partner.getContacts();
+      //RequirementResponse requirementResponse = modelMapper.map(requirement, RequirementResponse.class);
+      return contact;
+   }
+   public List<Address> getPartnerAddressById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      List<Address> address = partner.getAddresses();
+      //RequirementResponse requirementResponse = modelMapper.map(requirement, RequirementResponse.class);
+      return address;
+   }
+   public List<SocialMedia> getPartnerSocialMediasById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      List<SocialMedia> socialMedia = partner.getSocialMedias();
+      //RequirementResponse requirementResponse = modelMapper.map(requirement, RequirementResponse.class);
+      return socialMedia;
+   }
    @Override
    public PartnerResponse updatePartner(PartnerRequest request, Long id) {
       Partner existingPartner = partnerRepository.findById(id)
