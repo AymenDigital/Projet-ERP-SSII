@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/crm/addresses")
-@CrossOrigin("*")
+@CrossOrigin("${cross.origin.url}")
 public class AddressController {
     @Autowired
     private AddressServiceImpl addressService ;

@@ -1,11 +1,13 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.Benefit;
+import com.csidigital.dao.entity.*;
 import com.csidigital.dao.repository.BenefitRepository;
 import com.csidigital.management.service.BenefitService;
 import com.csidigital.shared.dto.request.BenefitRequest;
 import com.csidigital.shared.dto.response.BenefitResponse;
 
+import com.csidigital.shared.dto.response.ExtraDutyResponse;
+import com.csidigital.shared.dto.response.WorkArrangementResponse;
 import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -49,6 +51,32 @@ public class BenefitServiceImpl implements BenefitService {
                 .orElseThrow(()-> new ResourceNotFoundException("Benefit with id " +id+ " not found"));
         BenefitResponse benefitResponse = modelMapper.map(benefit, BenefitResponse.class);
         return benefitResponse;
+    }
+
+    @Override
+    public List<WorkArrangementResponse> getBenefitWorkArrangementsById(Long id) {
+        Benefit benefit = benefitRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Benefit with id " +id+ " not found"));
+        List<WorkArrangement> workArrangements = benefit.getWorkArrangements();
+        List<WorkArrangementResponse> workArrangementList = new ArrayList<>();
+        for(WorkArrangement workArrangement : workArrangements) {
+            WorkArrangementResponse response = modelMapper.map(workArrangement, WorkArrangementResponse.class);
+            workArrangementList.add(response);
+        }
+        return workArrangementList;
+    }
+
+    @Override
+    public List<ExtraDutyResponse> getBenefitExtraDutiesById(Long id) {
+        Benefit benefit = benefitRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Benefit with id " +id+ " not found"));
+        List<ExtraDuty> extraDuties = benefit.getExtraDuties();
+        List<ExtraDutyResponse> extraDutyList = new ArrayList<>();
+        for(ExtraDuty extraDuty : extraDuties) {
+            ExtraDutyResponse response = modelMapper.map(extraDuty, ExtraDutyResponse.class);
+            extraDutyList.add(response);
+        }
+        return extraDutyList;
     }
 
     @Override

@@ -4,6 +4,8 @@ import com.csidigital.dao.entity.*;
 
 import com.csidigital.shared.enumeration.*;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Lob;
 import lombok.Data;
 
 
@@ -31,6 +33,7 @@ public class PartnerRequest {
     private String description ;
     private WorkField workField ;
     private LegalStatus legalStatus ;
+    @Lob
     private String logo ;
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
@@ -39,10 +42,12 @@ public class PartnerRequest {
 
     private List<Requirement> requirements ;
 
-    private List<ContactPartner> contactPartners;
+    private List<ContactPartner> partnerContacts;
 
     private List<Address> addresses;
 
     private List<OfferedService> offeredServices;
     private List<SocialMedia> socialMedias ;
+    private List<PartnerBankAccount> bankAccounts ;
+
 }

@@ -1,21 +1,19 @@
-package com.csidigital.shared.dto.response;
+package com.csidigital.shared.dto.request;
 
 import com.csidigital.dao.entity.Appointment;
+import com.csidigital.dao.entity.ContactIndepBankAccount;
 import com.csidigital.dao.entity.ContactNote;
 import com.csidigital.shared.enumeration.Civility;
-import com.csidigital.shared.enumeration.Privilege;
 import com.csidigital.shared.enumeration.Service;
 import lombok.Data;
 
 import java.util.List;
-@Data
-public class PartnerContactResponse {
-    private Long id;
 
+@Data
+public class ContactIndepRequest {
     private Civility civility;
     private String lastName;
     private String firstName;
-    private String fullName;
     private String function;
     private Service service;
     private String emailOne;
@@ -23,8 +21,8 @@ public class PartnerContactResponse {
     private Long phoneNumberOne;
     private Long phoneNumberTwo;
     private String comment;
-    private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
-    private Long partnerId ;
+    private List<ContactIndepBankAccount> bankAccounts;
 }
+

@@ -22,6 +22,7 @@ public class Appointment implements Serializable {
     private Long id;
     private LocalDate date;
     private LocalTime time;
+    private String location;
     private Long duration;
     private String subject;
 
@@ -31,5 +32,5 @@ public class Appointment implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL)
-    private List<AppointmentNote> appointmentNotes;
+    private List<AppointmentNote> notes;
 }

@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/crm/orders")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class OrderController {
     @Autowired
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/crm/offeredServices")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class OfferedServiceController {
     @Autowired
 

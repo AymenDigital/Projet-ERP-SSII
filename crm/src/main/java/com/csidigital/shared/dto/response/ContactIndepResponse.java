@@ -1,15 +1,15 @@
 package com.csidigital.shared.dto.response;
 
 import com.csidigital.dao.entity.Appointment;
+import com.csidigital.dao.entity.ContactIndepBankAccount;
 import com.csidigital.dao.entity.ContactNote;
 import com.csidigital.shared.enumeration.Civility;
-import com.csidigital.shared.enumeration.Privilege;
 import com.csidigital.shared.enumeration.Service;
 import lombok.Data;
 
 import java.util.List;
 @Data
-public class PartnerContactResponse {
+public class ContactIndepResponse {
     private Long id;
 
     private Civility civility;
@@ -23,8 +23,7 @@ public class PartnerContactResponse {
     private Long phoneNumberOne;
     private Long phoneNumberTwo;
     private String comment;
-    private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
-    private Long partnerId ;
+    private List<ContactIndepBankAccount> bankAccounts;
 }

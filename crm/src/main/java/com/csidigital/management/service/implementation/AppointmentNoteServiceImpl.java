@@ -2,15 +2,11 @@ package com.csidigital.management.service.implementation;
 
 import com.csidigital.dao.entity.Appointment;
 import com.csidigital.dao.entity.AppointmentNote;
-import com.csidigital.dao.entity.Contact;
 import com.csidigital.dao.repository.AppointmentNoteRepository;
 import com.csidigital.dao.repository.AppointmentRepository;
-import com.csidigital.dao.repository.ContactRepository;
 import com.csidigital.management.service.AppointmentNoteService;
 import com.csidigital.shared.dto.request.AppointmentNoteRequest;
-import com.csidigital.shared.dto.request.AppointmentRequest;
 import com.csidigital.shared.dto.response.AppointmentNoteResponse;
-import com.csidigital.shared.dto.response.AppointmentResponse;
 import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;

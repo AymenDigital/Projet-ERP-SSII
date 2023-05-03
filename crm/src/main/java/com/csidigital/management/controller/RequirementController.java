@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/crm/requirements")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class RequirementController {
     @Autowired
     private RequirementServiceImpl requirementService ;

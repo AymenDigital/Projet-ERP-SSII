@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.*;
-import java.io.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -35,14 +34,8 @@ public class Partner implements Serializable {
     private Long refPhoneNumber;
 
     private Long refPhoneNumber2;
-
-    private Long refPhoneNumber;
-
-    private Long refPhoneNumber2;
     private Integer postCode ;
     private String city ;
-
-    private String country ;
 
     private String country ;
     private String description ;
@@ -50,6 +43,7 @@ public class Partner implements Serializable {
     private WorkField workField ;
     @Enumerated(EnumType.STRING)
     private LegalStatus legalStatus ;
+    @Lob
     private String logo ;
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
@@ -70,9 +64,12 @@ public class Partner implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
-    private List<Contact> contacts ;
+    private List<ContactPartner> partnerContacts ;
     @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
     private List<SocialMedia> socialMedias ;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
+    private List<PartnerBankAccount> bankAccounts;
 }

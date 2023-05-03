@@ -18,8 +18,8 @@ public class ExtraDuty implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private Long workingHoursNumber ;
-    private Double HourWage ;
-    private Double PerformanceBonus ;
+    private Double hourWage ;
+    private Double performanceBonus ;
     @Enumerated(EnumType.STRING)
     private ExtraDutyType extraDutyType ;
 

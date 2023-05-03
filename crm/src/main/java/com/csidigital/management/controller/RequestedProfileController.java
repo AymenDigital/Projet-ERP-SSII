@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/crm/requestedProfiles")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class RequestedProfileController {
     @Autowired
     private RequestedProfileServiceImpl requestedProfileService ;

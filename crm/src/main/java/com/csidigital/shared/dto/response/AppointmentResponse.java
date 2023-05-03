@@ -14,12 +14,11 @@ public class AppointmentResponse {
     private Long Id ;
     private LocalDate date;
     private LocalTime time;
+    private String location;
     private Long duration;
     private String subject;
     private Long contactId;
-    
-    private List<AppointmentNote> appointmentNotes;
-
-    private String contactN;
+    private List<AppointmentNote> notes;
+    private String contactFullName;
 
 }

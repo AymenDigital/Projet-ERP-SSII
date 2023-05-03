@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/crm/socialMedias")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class SocialMediaController {
     @Autowired
     private SocialMediaServiceImpl socialMediaService ;

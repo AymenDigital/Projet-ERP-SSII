@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/crm/contactNotes")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class ContactNoteController {
     @Autowired
     private ContactNoteServiceImpl contactNoteService ;

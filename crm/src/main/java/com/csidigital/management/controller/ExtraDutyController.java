@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/crm/extraDuties")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class ExtraDutyController {
     @Autowired
     private ExtraDutyServiceImpl extraDutyService ;

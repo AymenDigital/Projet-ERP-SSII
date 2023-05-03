@@ -2,6 +2,8 @@ package com.csidigital.shared.dto.response;
 
 import com.csidigital.dao.entity.*;
 import com.csidigital.shared.enumeration.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Lob;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -27,6 +29,7 @@ public class PartnerResponse {
     private String description ;
     private WorkField workField ;
     private LegalStatus legalStatus ;
+    @Lob
     private String logo ;
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
@@ -38,6 +41,7 @@ public class PartnerResponse {
     private List<Address> addresses;
 
     private List<OfferedService> offeredServices;
-    private List<Contact> contacts ;
+    private List<ContactPartner> partnerContacts ;
     private List<SocialMedia> socialMedias ;
+    private List<PartnerBankAccount> bankAccounts ;
 }

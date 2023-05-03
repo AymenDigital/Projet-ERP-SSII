@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/crm/appointmentNotes")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${cross.origin.url}")
 public class AppointmentNoteController {
     @Autowired
     private AppointmentNoteServiceImpl appointmentNoteService;

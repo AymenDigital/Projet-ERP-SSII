@@ -1,22 +1,16 @@
 package com.csidigital.dao.entity;
 
 import com.csidigital.shared.enumeration.Civility;
-import com.csidigital.shared.enumeration.Privilege;
 import com.csidigital.shared.enumeration.Service;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-
 public class Contact implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +19,7 @@ public class Contact implements Serializable {
     private Civility civility;
     private String lastName;
     private String firstName;
+    private String fullName;
     private String function;
     @Enumerated(EnumType.STRING)
     private Service service;
@@ -33,8 +28,6 @@ public class Contact implements Serializable {
     private Long phoneNumberOne;
     private Long phoneNumberTwo;
     private String comment;
-    @Enumerated(EnumType.STRING)
-    private Privilege privilege;
 
     @JsonIgnore
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
@@ -42,13 +35,10 @@ public class Contact implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
-
     private List<Appointment> appointments;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "partner_id")
-    private Partner partner ;
-
-
+    @PrePersist
+    @PreUpdate
+    public void setFullName() {
+        this.fullName = this.firstName + " " + this.lastName;
+    }
 }
