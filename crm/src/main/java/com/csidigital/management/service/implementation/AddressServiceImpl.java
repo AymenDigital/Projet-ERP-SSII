@@ -24,7 +24,6 @@ public class AddressServiceImpl implements AddressService {
     private AddressRepository addressRepository ;
     @Autowired
     private ModelMapper modelMapper;
-
     @Autowired
     private PartnerRepository partnerRepository;
 
