@@ -55,6 +55,11 @@ public class PartnerController {
         return partnerService.getPartnerOfferedServicesById(id);
     }
 
+    @GetMapping("/{id}/bankAccounts")
+    public List<BankAccount> getPartnerAccountsById(@PathVariable Long id){
+        return partnerService.getPartnerBankAccountsById(id);
+    }
+
     @PostMapping()
     public PartnerResponse createPartner(@RequestBody PartnerRequest partnerRequest){
 

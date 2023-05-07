@@ -110,6 +110,14 @@ public class PartnerServiceImpl implements PartnerService {
    }
 
    @Override
+   public List<BankAccount> getPartnerBankAccountsById(Long id) {
+      Partner partner = partnerRepository.findById(id)
+              .orElseThrow(()-> new ResourceNotFoundException("Partner with id " +id+ " not found"));
+      List<BankAccount> bankAccounts = partner.getBankAccounts();
+      return bankAccounts;
+   }
+
+   @Override
    public PartnerResponse updatePartner(PartnerRequest request, Long id) {
       Partner existingPartner = partnerRepository.findById(id)
               .orElseThrow(()-> new ResourceNotFoundException("Partner with id: " + id + " not found"));

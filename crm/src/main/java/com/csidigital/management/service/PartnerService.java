@@ -23,6 +23,7 @@ public interface PartnerService {
     List<Contact> getPartnerContactsById(Long id) ;
     List<SocialMedia> getPartnerSocialMediasById(Long id);
     List<OfferedService> getPartnerOfferedServicesById(Long id);
+    List<BankAccount> getPartnerBankAccountsById(Long id);
     PartnerResponse updatePartner(PartnerRequest partnerRequest , Long id );
 
     void deletePartner(Long id);
