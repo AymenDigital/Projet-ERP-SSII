@@ -48,6 +48,7 @@ public class Partner implements Serializable {
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
+    private String devise;
     @Enumerated(EnumType.STRING)
     private Provenance provenance ;
 
@@ -64,12 +65,12 @@ public class Partner implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
-    private List<ContactPartner> partnerContacts ;
+    private List<Contact> contacts ;
     @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
     private List<SocialMedia> socialMedias ;
 
     @JsonIgnore
     @OneToMany(mappedBy = "partner", cascade = CascadeType.ALL)
-    private List<PartnerBankAccount> bankAccounts;
+    private List<BankAccount> bankAccounts;
 }

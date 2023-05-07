@@ -38,16 +38,17 @@ public class PartnerRequest {
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
+    private String devise;
     private Provenance provenance ;
 
     private List<Requirement> requirements ;
 
-    private List<ContactPartner> partnerContacts;
+    private List<Contact> partnerContacts;
 
     private List<Address> addresses;
 
     private List<OfferedService> offeredServices;
     private List<SocialMedia> socialMedias ;
-    private List<PartnerBankAccount> bankAccounts ;
+    private List<BankAccount> bankAccounts ;
 
 }

@@ -10,7 +10,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ContactPRequest {
+public class ContactRequest {
     private Civility civility;
     private String lastName;
     private String firstName;
@@ -24,5 +24,5 @@ public class ContactPRequest {
     private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
-    private Long partnerNum ;
+    private Long partnerId ;
 }

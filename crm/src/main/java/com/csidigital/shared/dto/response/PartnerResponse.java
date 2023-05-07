@@ -34,6 +34,7 @@ public class PartnerResponse {
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
+    private String devise;
     private Provenance provenance ;
 
 
@@ -41,7 +42,7 @@ public class PartnerResponse {
     private List<Address> addresses;
 
     private List<OfferedService> offeredServices;
-    private List<ContactPartner> partnerContacts ;
+    private List<Contact> contacts ;
     private List<SocialMedia> socialMedias ;
-    private List<PartnerBankAccount> bankAccounts ;
+    private List<BankAccount> bankAccounts ;
 }

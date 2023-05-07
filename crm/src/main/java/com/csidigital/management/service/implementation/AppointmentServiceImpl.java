@@ -3,7 +3,7 @@ package com.csidigital.management.service.implementation;
 import com.csidigital.dao.entity.Appointment;
 import com.csidigital.dao.entity.Contact;
 import com.csidigital.dao.repository.AppointmentRepository;
-import com.csidigital.dao.repository.ContactIndepRepository;
+import com.csidigital.dao.repository.ContactRepository;
 import com.csidigital.shared.dto.request.AppointmentRequest;
 import com.csidigital.shared.dto.response.AppointmentResponse;
 import com.csidigital.management.service.AppointmentService;
@@ -24,7 +24,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
-    private ContactIndepRepository contactRepository;
+    private ContactRepository contactRepository;
 
     @Override
     public AppointmentResponse createAppointment(AppointmentRequest request) {
@@ -37,18 +37,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         return modelMapper.map(appointmentSaved, AppointmentResponse.class);
     }
 
-//    @Override
-//    public List<AppointmentResponse> getAllAppointments() {
-//        List<Appointment> appointments = appointmentRepository.findAll();
-//        List<AppointmentResponse> appointmentList = new ArrayList<>();
-//
-//        for (Appointment appointment : appointments) {
-//            AppointmentResponse response = modelMapper.map(appointment, AppointmentResponse.class);
-//            appointmentList.add(response);
-//        }
-//
-//        return appointmentList;
-//    }
+
 
     @Override
     public List<AppointmentResponse> getAllAppointments() {

@@ -9,11 +9,16 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@MappedSuperclass
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class BankAccount implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long rib;
     private String bankName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Partner partner;
 }

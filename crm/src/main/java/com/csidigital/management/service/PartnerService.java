@@ -20,11 +20,10 @@ public interface PartnerService {
     PartnerResponse getPartnerById(Long id);
      List<Requirement> getPartnerReqById(Long id) ;
     List<Address> getPartnerAddressById(Long id);
-    List<ContactPartner> getPartnerContactById(Long id) ;
+    List<Contact> getPartnerContactsById(Long id) ;
     List<SocialMedia> getPartnerSocialMediasById(Long id);
+    List<OfferedService> getPartnerOfferedServicesById(Long id);
     PartnerResponse updatePartner(PartnerRequest partnerRequest , Long id );
 
     void deletePartner(Long id);
-    ResponseEntity<?> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file);
-    public ResponseEntity<byte[]> getImage(@PathVariable Long id);
 }

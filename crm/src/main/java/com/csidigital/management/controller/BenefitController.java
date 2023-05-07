@@ -1,7 +1,5 @@
 package com.csidigital.management.controller;
 
-import com.csidigital.dao.entity.ContactPartner;
-import com.csidigital.dao.entity.Requirement;
 import com.csidigital.management.service.implementation.BenefitServiceImpl;
 import com.csidigital.shared.dto.request.BenefitRequest;
 import com.csidigital.shared.dto.response.BenefitResponse;

@@ -1,13 +1,11 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.ContactPartner;
 import com.csidigital.dao.entity.Partner;
 import com.csidigital.dao.entity.Requirement;
 import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.dao.repository.RequirementRepository;
 import com.csidigital.management.service.RequirementService;
 import com.csidigital.shared.dto.request.RequirementRequest;
-import com.csidigital.shared.dto.response.PartnerContactResponse;
 import com.csidigital.shared.dto.response.RequirementResponse;
 import com.csidigital.shared.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
@@ -15,7 +13,6 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -38,8 +38,8 @@ public class PartnerController {
         return partnerService.getPartnerReqById(id);
     }
     @GetMapping("/{id}/contacts")
-    public List<ContactPartner> getPartnerContactById(@PathVariable Long id){
-        return partnerService.getPartnerContactById(id);
+    public List<Contact> getPartnerContactById(@PathVariable Long id){
+        return partnerService.getPartnerContactsById(id);
     }
     @GetMapping("/{id}/addresses")
     public List<Address> getPartnerAddressById(@PathVariable Long id){
@@ -48,6 +48,11 @@ public class PartnerController {
     @GetMapping("/{id}/socialMedias")
     public List<SocialMedia> getPartnerSocialMediasById(@PathVariable Long id){
         return partnerService.getPartnerSocialMediasById(id);
+    }
+
+    @GetMapping("/{id}/offered")
+    public List<OfferedService> getPartnerOfferedServicesById(@PathVariable Long id){
+        return partnerService.getPartnerOfferedServicesById(id);
     }
 
     @PostMapping()
@@ -68,17 +73,5 @@ public class PartnerController {
         partnerService.deletePartner(id);
     }
 
-    /*@GetMapping(path = "/logo/{fileName}", produces = IMAGE_PNG_VALUE)
-    public byte[] getPartnerLogo(@PathVariable("fileName") String fileName) throws IOException {
-        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "\\Documents\\Projects\\csi\\crm\\upload-dir\\" + fileName));
-    }*/
 
-    /*@PostMapping("/{id}/image")
-    public ResponseEntity<?> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
-        return partnerService.uploadImage(id, file);
-    }*/
-    @GetMapping("/{id}/image")
-    public ResponseEntity<byte[]> getImage(@PathVariable Long id) {
-        return partnerService.getImage(id);
-    }
 }

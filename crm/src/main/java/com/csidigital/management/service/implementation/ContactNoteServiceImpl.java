@@ -3,9 +3,7 @@ package com.csidigital.management.service.implementation;
 import com.csidigital.dao.entity.Contact;
 import com.csidigital.dao.entity.ContactNote;
 import com.csidigital.dao.repository.ContactNoteRepository;
-import com.csidigital.dao.repository.ContactIndepRepository;
 import com.csidigital.dao.repository.ContactRepository;
-import com.csidigital.dao.repository.PartnerContactRepository;
 import com.csidigital.management.service.ContactNoteService;
 import com.csidigital.shared.dto.request.ContactNoteRequest;
 import com.csidigital.shared.dto.response.ContactNoteResponse;
@@ -21,8 +19,6 @@ import java.util.List;
 
 @Service
 @Transactional
-
-
 public class ContactNoteServiceImpl implements ContactNoteService {
     @Autowired
     private ContactNoteRepository contactNoteRepository ;
