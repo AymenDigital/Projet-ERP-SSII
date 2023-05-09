@@ -12,9 +12,7 @@ import java.time.LocalDate;
 @Data
 
 public class ContactNoteRequest {
-    private LocalDate contactDate;
     private String  subject;
-    private String comment;
-    private String discussionNote;
+    private String note;
     private Long contactNum;
 }

@@ -1,5 +1,9 @@
 package com.csidigital.management.controller;
 
+import com.csidigital.dao.entity.Appointment;
+import com.csidigital.dao.entity.ContactNote;
+import com.csidigital.dao.entity.OfferedService;
+import com.csidigital.dao.entity.SocialMedia;
 import com.csidigital.management.service.implementation.ContactServiceImpl;
 import com.csidigital.shared.dto.request.ContactRequest;
 import com.csidigital.shared.dto.response.ContactResponse;
@@ -24,6 +28,16 @@ public class ContactController {
     @GetMapping("/{id}")
     public ContactResponse getContactById(@PathVariable Long id){
         return contactService.getContactById(id);
+    }
+
+    @GetMapping("/{id}/appointments")
+    public List<Appointment> getPartnerSocialMediasById(@PathVariable Long id){
+        return contactService.getContactAppointmentsById(id);
+    }
+
+    @GetMapping("/{id}/contactNotes")
+    public List<ContactNote> getPartnerOfferedServicesById(@PathVariable Long id){
+        return contactService.getContactNotesById(id);
     }
 
     @PostMapping()

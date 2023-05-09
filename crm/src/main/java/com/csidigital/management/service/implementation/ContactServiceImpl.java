@@ -1,7 +1,6 @@
 package com.csidigital.management.service.implementation;
 
-import com.csidigital.dao.entity.Contact;
-import com.csidigital.dao.entity.Partner;
+import com.csidigital.dao.entity.*;
 import com.csidigital.dao.repository.ContactRepository;
 import com.csidigital.dao.repository.PartnerRepository;
 import com.csidigital.management.service.ContactService;
@@ -30,8 +29,8 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ContactResponse createContact(ContactRequest request) {
         Partner partner = null;
-        if(request.getPartnerId()!=null) {
-            partner = partnerRepository.findById(request.getPartnerId())
+        if(request.getPartnerNum()!=null) {
+            partner = partnerRepository.findById(request.getPartnerNum())
                     .orElseThrow();
         }
         Contact contact = modelMapper.map(request, Contact.class);
@@ -58,6 +57,22 @@ public class ContactServiceImpl implements ContactService {
                 .orElseThrow(()-> new ResourceNotFoundException("PartnerContact with id " +id+ " not found"));
         ContactResponse contactResponse = modelMapper.map(contact, ContactResponse.class);
         return contactResponse;
+    }
+
+    @Override
+    public List<Appointment> getContactAppointmentsById(Long id) {
+        Contact contact = contactRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Contact with id " +id+ " not found"));
+        List<Appointment> appointments = contact.getAppointments();
+        return appointments;
+    }
+
+    @Override
+    public List<ContactNote> getContactNotesById(Long id) {
+        Contact contact = contactRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Contact with id " +id+ " not found"));
+        List<ContactNote> contactNotes = contact.getContactNotes();
+        return contactNotes;
     }
 
     @Override

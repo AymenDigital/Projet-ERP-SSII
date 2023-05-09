@@ -19,10 +19,8 @@ public class ContactNote implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-    private LocalDate contactDate;
     private String  subject;
-    private String comment;
-    private String discussionNote;
+    private String note;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore

@@ -24,5 +24,5 @@ public class ContactRequest {
     private Privilege privilege;
     private List<ContactNote> contactNotes;
     private List<Appointment> appointments;
-    private Long partnerId ;
+    private Long partnerNum ;
 }
