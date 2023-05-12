@@ -26,6 +26,7 @@ public class RequirementRequest {
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
+    private String company;
 
     private Long partnerNum ;
 

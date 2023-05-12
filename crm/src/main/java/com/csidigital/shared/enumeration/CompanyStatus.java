@@ -1,5 +1,5 @@
 package com.csidigital.shared.enumeration;
 
 public enum CompanyStatus {
-    PROSPECT , SUPPLIER , CLIENT , ARCHIVED , PERSONNE_PHYSIQUE
+    PROSPECT , SUPPLIER , CLIENT , ARCHIVED , PHYSICAL_PERSON
 }

@@ -30,8 +30,7 @@ public class RequirementResponse {
     private LocalDate responseDate ;
 
     private Integer totalCandidateNumber ;
-
-
+    private String company;
     private Long partnerId ;
 
 

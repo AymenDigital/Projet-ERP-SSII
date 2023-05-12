@@ -77,9 +77,15 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public ContactResponse updateContact(Long id, ContactRequest request) {
+        Partner partner = null;
+        if(request.getPartnerNum()!=null) {
+            partner = partnerRepository.findById(request.getPartnerNum())
+                    .orElseThrow();
+        }
         Contact existingContact = contactRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("PartnerContact with id: " + id + " not found"));
         modelMapper.map(request, existingContact);
+        existingContact.setPartner(partner);
         Contact savedContactPartner = contactRepository.save(existingContact);
         return modelMapper.map(savedContactPartner, ContactResponse.class);
     }

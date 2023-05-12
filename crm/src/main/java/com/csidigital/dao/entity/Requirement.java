@@ -6,6 +6,7 @@ import com.csidigital.shared.enumeration.RequirementType;
 import com.csidigital.shared.enumeration.WorkField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,8 +41,10 @@ public class Requirement implements Serializable {
     private LocalDate expectedEndDate ;
     private LocalDate responseDate ;
     private  Integer totalCandidateNumber ;
+    private String company;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Nullable
     @JsonIgnore
     private Partner partner;
 }
