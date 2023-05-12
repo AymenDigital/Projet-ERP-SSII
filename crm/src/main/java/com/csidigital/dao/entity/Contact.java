@@ -27,8 +27,9 @@ public class Contact implements Serializable {
     private String firstName;
     private String fullName;
     private String function;
-    @Enumerated(EnumType.STRING)
-    private Service service;
+    private String societe ;
+
+    private String service;
     private String emailOne;
     private String emailTwo;
     private Long phoneNumberOne;
