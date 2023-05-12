@@ -15,7 +15,8 @@ public class ContactRequest {
     private String lastName;
     private String firstName;
     private String function;
-    private Service service;
+    private String societe;
+    private String service;
     private String emailOne;
     private String emailTwo;
     private Long phoneNumberOne;
