@@ -21,6 +21,7 @@ public class ContactResponse {
     private String lastName;
     private String firstName;
     private String fullName;
+    private String localisation;
     private String function;
     private String societe ;
     private String service;

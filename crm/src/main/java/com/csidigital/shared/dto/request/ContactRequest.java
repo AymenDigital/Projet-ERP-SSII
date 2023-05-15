@@ -14,6 +14,7 @@ public class ContactRequest {
     private Civility civility;
     private String lastName;
     private String firstName;
+    private String localisation;
     private String function;
     private String societe;
     private String service;

@@ -28,14 +28,14 @@ public class Contact implements Serializable {
     private String fullName;
     private String function;
     private String societe ;
-
+    private String localisation;
     private String service;
     private String emailOne;
     private String emailTwo;
     private Long phoneNumberOne;
     private Long phoneNumberTwo;
     private String comment;
-    @Nullable
+    @Column(name = "privilege", nullable = true)
     @Enumerated(EnumType.STRING)
     private Privilege privilege;
     @JsonIgnore

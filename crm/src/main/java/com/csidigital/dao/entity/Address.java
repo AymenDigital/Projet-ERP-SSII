@@ -1,5 +1,6 @@
 package com.csidigital.dao.entity;
 
+import com.csidigital.shared.enumeration.AddressType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,8 +17,12 @@ public class Address implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-    private  String  addressTitle;
+    private int num;
     private String street ;
+    private String city ;
+    private String region;
+    private String country ;
+    private AddressType type;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Partner partner;
