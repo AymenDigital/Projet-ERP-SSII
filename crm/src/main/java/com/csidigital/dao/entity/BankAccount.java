@@ -17,7 +17,10 @@ public class BankAccount implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long rib;
+    private Long bic;
+    private Long iban;
     private String bankName;
+    private String bankAddress;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Partner partner;

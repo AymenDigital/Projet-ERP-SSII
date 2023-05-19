@@ -21,25 +21,25 @@ public class Partner implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private Long ref;
+
+    //identifiant Siret ou RNE
+    private Long legalIdentifier;
+
+    //identifiant TVA
+    private Long tvaIdentifier;
+
+    private Long nafCode;
     private String name ;
     @Enumerated(EnumType.STRING)
     private CompanyStatus companyStatus ;
     private Integer staffNumber;
     private String parentCompany;
-
-    private String ceoName ;
-    private String ceoLastName ;
+    private String email;
+    private String webSite;
+    private String ceoFullName ;
     private Long phoneNumber ;
     private Long mobilePhoneNumber ;
-
-    private Long refPhoneNumber;
-
-    private Long refPhoneNumber2;
-    private Integer postCode ;
-    private String city ;
-
-    private String country ;
-    private String description ;
+    private String comment ;
     @Enumerated(EnumType.STRING)
     private WorkField workField ;
     @Enumerated(EnumType.STRING)
@@ -49,7 +49,17 @@ public class Partner implements Serializable {
     private LocalDate activityStartDate;
     private LocalDate activityEndDate;
     private LocalDate partnerShipDate;
+    private double inProgressAuthorized;
+    private ControlType controlType;
+    private InsurancePolicy insurancePolicy;
+    private LocalDate foundedSince;
     private String devise;
+    private double capital;
+    private String majorShareHolder;
+    private PaymentMode paymentMode;
+    private PaymentCondition paymentCondition;
+    private boolean blocked;
+    private String reason;
     @Enumerated(EnumType.STRING)
     private Provenance provenance ;
 

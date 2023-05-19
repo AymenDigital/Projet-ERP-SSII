@@ -30,10 +30,12 @@ public class Contact implements Serializable {
     private String societe ;
     private String localisation;
     private String service;
-    private String emailOne;
-    private String emailTwo;
-    private Long phoneNumberOne;
-    private Long phoneNumberTwo;
+    private String email;
+    private Long phoneNumber;
+    private Long mobilePhoneNumber;
+    private boolean privilegedContact;
+    private boolean appointmentMaking;
+    @Column(length = 1000)
     private String comment;
     @Column(name = "privilege", nullable = true)
     @Enumerated(EnumType.STRING)

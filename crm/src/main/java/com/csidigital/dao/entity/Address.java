@@ -19,6 +19,7 @@ public class Address implements Serializable{
     private Long id ;
     private int num;
     private String street ;
+    private Long postalCode;
     private String city ;
     private String region;
     private String country ;

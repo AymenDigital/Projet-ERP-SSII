@@ -25,10 +25,11 @@ public class ContactResponse {
     private String function;
     private String societe ;
     private String service;
-    private String emailOne;
-    private String emailTwo;
-    private Long phoneNumberOne;
-    private Long phoneNumberTwo;
+    private String email;
+    private Long phoneNumber;
+    private Long mobilePhoneNumber;
+    private boolean privilegedContact;
+    private boolean appointmentMaking;
     private String comment;
     @Nullable
     @Enumerated(EnumType.STRING)
